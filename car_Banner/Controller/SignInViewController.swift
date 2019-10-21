@@ -19,20 +19,20 @@ class SignInViewController: UIViewController {
     }
     @IBAction func signInButtonClicked(_ sender: Any) {
         print("signin Button")
-        
-        let userName = userNameTextField.text
+
+        let userName     = userNameTextField.text
         let userPassword = userPasswordTextField.text
-        
+
         if (userName?.isEmpty)! || (userPassword?.isEmpty)!  {
             print("User name \(String(describing: userName)) or password \(String(describing: userPassword)) is empty")
             displayMessage(userMessage: "One of the required fields is missing!")
-            
+
             return
         }
         
-        let myActivityIndicator = UIActivityIndicatorView( style: UIActivityIndicatorView.Style.medium )
-          myActivityIndicator.center = view.center
-          myActivityIndicator.hidesWhenStopped = false
+        let myActivityIndicator              = UIActivityIndicatorView( style: UIActivityIndicatorView.Style.medium )
+        myActivityIndicator.center           = view.center
+        myActivityIndicator.hidesWhenStopped = false
           myActivityIndicator.startAnimating()
           view.addSubview(myActivityIndicator)
         
@@ -69,7 +69,7 @@ class SignInViewController: UIViewController {
                 
                 if let parseJSON = json{
                     
-                    let userId = parseJSON["_id"] as? String
+                    let userId      = parseJSON["_id"] as? String
                     let accessToken = parseJSON["token"] as? String
                     print("UserId=\(String(describing: userId))")
                     print("Access Token=\(String(describing: accessToken!))")
@@ -79,13 +79,13 @@ class SignInViewController: UIViewController {
                         self.displayMessage(userMessage: "Could not successfully perfom this request. please try again tater")
                         return
                     }
-//                      self.displayMessage(userMessage: "succ")
+//                      self.displayMessage(userMessage: "succ")OrderListPageViewController
 
                         DispatchQueue.main.async
                         {
-                            let orderListPage = self.storyboard?.instantiateViewController(withIdentifier: "OrderListPageViewController") as! OrderListPageViewController
-                            let appDelegate = UIApplication.shared.delegate
-                            appDelegate?.window??.rootViewController = orderListPage
+                            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                            let vc = mainStoryboard.instantiateViewController(withIdentifier: "OrderListPageViewController") as! OrderListPageViewController
+                            UIApplication.shared.keyWindow?.rootViewController = vc
                         }
                 } else {
                     self.displayMessage(userMessage: "Could not successfully perfom this request. please try again tater")
@@ -101,19 +101,19 @@ class SignInViewController: UIViewController {
     }
     @IBAction func registerButtonClicked(_ sender: Any) {
         print("Register Button")
-        
+
         let RegisterUserViewController = self.storyboard?.instantiateViewController(withIdentifier: "RegisterUserViewController") as!  RegisterUserViewController
-        
+
         self.present(RegisterUserViewController,animated: true)
     }
-    
+
     func removeActivityyIndicator(activityIndicator: UIActivityIndicatorView){
         DispatchQueue.main.async{
             activityIndicator.stopAnimating()
             activityIndicator.removeFromSuperview()
         }
     }
-    
+
     func displayMessage(userMessage: String) -> Void {
         DispatchQueue.main.async{
             let alertController = UIAlertController(
