@@ -34,11 +34,9 @@ class RegisterUserViewController: UIViewController {
         }
         
         let myActivityIndicator = UIActivityIndicatorView( style: UIActivityIndicatorView.Style.medium )
-        
         myActivityIndicator.center = view.center
-        
         myActivityIndicator.hidesWhenStopped = false
-        
+        myActivityIndicator.startAnimating()
         view.addSubview(myActivityIndicator)
 
         let myUrl = URL(string: "http://localhost:8000/api/user/registerDriver")
@@ -54,8 +52,8 @@ class RegisterUserViewController: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
-        }catch let error {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
+        } catch let error {
             print(error.localizedDescription)
             displayMessage(userMessage: error.localizedDescription)
             return
@@ -82,23 +80,23 @@ class RegisterUserViewController: UIViewController {
                     
                     if (userId?.isEmpty)!
                     {
-                        self.displayMessage(userMessage: "could not succ")
+                        self.displayMessage(userMessage: "could not succsessful")
                         return
                     }else{
-                        self.displayMessage(userMessage: "Succsessful")
+                        self.displayMessage(userMessage: "Succsessful you are Register")
                     }
                 }else{
-                    self.displayMessage(userMessage: "could not succ")
+                    self.displayMessage(userMessage: "could not succsessful")
                 }
                 
             }catch {
             self.removeActivityyIndicator(activityIndicator: myActivityIndicator)
             
-            self.displayMessage(userMessage: "could")
+            self.displayMessage(userMessage: "could \(error)")
             print(error)
+            }
         }
-    }
-            task.resume()
+        task.resume()
                     
         //        session.dataTask(with: request) { (data, response, error) in
         //            if let response = response {
@@ -138,12 +136,12 @@ class RegisterUserViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
         
-        func removeActivityyIndicator(activityIndicator: UIActivityIndicatorView){
-            DispatchQueue.main.async{
-                activityIndicator.stopAnimating()
-                activityIndicator.removeFromSuperview()
-            }
+    func removeActivityyIndicator(activityIndicator: UIActivityIndicatorView){
+        DispatchQueue.main.async{
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
         }
+    }
     
     func displayMessage(userMessage: String) -> Void {
         DispatchQueue.main.async{
