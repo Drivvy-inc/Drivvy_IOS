@@ -39,7 +39,7 @@ class RegisterUserViewController: UIViewController {
         myActivityIndicator.startAnimating()
         view.addSubview(myActivityIndicator)
 
-        let myUrl = URL(string: "http://localhost:8000/api/user/registerDriver")
+        let myUrl = URL(string: "http://0d7bdb6c.ngrok.io/api/user/registerDriver")
         
         let parameters = ["name": nameRegTextField.text!,
                           "email": emailRegTextField.text!,

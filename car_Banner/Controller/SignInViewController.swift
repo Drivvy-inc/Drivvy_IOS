@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class SignInViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
@@ -36,7 +37,7 @@ class SignInViewController: UIViewController {
           myActivityIndicator.startAnimating()
           view.addSubview(myActivityIndicator)
         
-        let myUrl = URL(string: "http://localhost:8000/api/user/loginDriver")
+        let myUrl = URL(string: "http://0d7bdb6c.ngrok.io/api/user/loginDriver")
         var request = URLRequest(url: myUrl!)
            request.httpMethod = "POST"
            request.addValue("application/json", forHTTPHeaderField: "content-type")
@@ -73,6 +74,12 @@ class SignInViewController: UIViewController {
                     let accessToken = parseJSON["token"] as? String
                     print("UserId=\(String(describing: userId))")
                     print("Access Token=\(String(describing: accessToken!))")
+                    
+                    let saveAccessToken: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
+                    let saveUserId: Bool = KeychainWrapper.standard.set(userId!, forKey: "userId")
+                    
+                    print("saveAccessToken: \(saveAccessToken)")
+                    print("saveUserId: \(saveUserId)")
 
                     if (accessToken?.isEmpty)!
                     {
@@ -84,7 +91,7 @@ class SignInViewController: UIViewController {
                         DispatchQueue.main.async
                         {
                             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                            let vc = mainStoryboard.instantiateViewController(withIdentifier: "OrderListPageViewController") as! OrderListPageViewController
+                            let vc = mainStoryboard.instantiateViewController(withIdentifier: "MainTabBarViewController") as! MainTabBarViewController
                             UIApplication.shared.keyWindow?.rootViewController = vc
                         }
                 } else {

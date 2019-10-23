@@ -179,7 +179,7 @@
             </objects>
             <point key="canvasLocation" x="1041" y="138"/>
         </scene>
-        <!--Order List Page View Controller-->
+        <!--Orders-->
         <scene sceneID="Qai-Ju-tPh">
             <objects>
                 <viewController storyboardIdentifier="OrderListPageViewController" id="b6m-Ju-ePk" customClass="OrderListPageViewController" customModule="car_Banner" customModuleProvider="target" sceneMemberID="viewController">
@@ -231,13 +231,89 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H0S-T6-KmY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Orders" image="dollarsign.circle" catalog="system" id="aCm-6Y-V5a"/>
                     <connections>
                         <outlet property="userFullNameLabel" destination="Lo6-nc-9NN" id="kqZ-fY-7vh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S0o-c9-tD6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1914" y="138"/>
+            <point key="canvasLocation" x="1448" y="958"/>
+        </scene>
+        <!--Tracker-->
+        <scene sceneID="Fue-NG-pPg">
+            <objects>
+                <viewController id="jSw-vA-5Nk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ln0-Pg-YJQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Ljr-8M-peo"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Tracker" image="mappin.and.ellipse" catalog="system" id="UyQ-xD-86B"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B8S-Tn-iGd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2503" y="958"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ns5-25-HIE">
+            <objects>
+                <viewController id="dpf-is-gxn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sH7-kz-1U1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="rSb-d4-WtN"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KDa-r4-w5I"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wui-Cc-RzD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3609" y="1771"/>
+        </scene>
+        <!--Main Tab Bar View Controller-->
+        <scene sceneID="yeC-CZ-oAo">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabBarViewController" automaticallyAdjustsScrollViewInsets="NO" id="89H-Aa-C5x" customClass="MainTabBarViewController" customModule="car_Banner" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UQN-H0-W9g">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="jSw-vA-5Nk" kind="relationship" relationship="viewControllers" id="pML-T7-wuT"/>
+                        <segue destination="b6m-Ju-ePk" kind="relationship" relationship="viewControllers" id="mrA-rB-Yqz"/>
+                        <segue destination="OPk-pl-7Aq" kind="relationship" relationship="viewControllers" id="ONL-Ae-QKm"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2og-cR-Qz5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2503" y="138"/>
+        </scene>
+        <!--Account-->
+        <scene sceneID="oA1-PS-ApO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OPk-pl-7Aq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Account" image="person.crop.circle" catalog="system" id="OBF-SM-o1R"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B9h-h1-eFl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dpf-is-gxn" kind="relationship" relationship="rootViewController" id="UMy-IT-gph"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nx8-B2-W83" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3608.6956521739135" y="957.58928571428567"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dollarsign.circle" catalog="system" width="64" height="60"/>
+        <image name="mappin.and.ellipse" catalog="system" width="58" height="64"/>
+        <image name="person.crop.circle" catalog="system" width="64" height="60"/>
+    </resources>
 </document>
