@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		A5656986A0F5E15D54BB0BD9 /* Pods_car_Banner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC88840164860804687B5A73 /* Pods_car_Banner.framework */; };
+		FE00EF102360DC1A00200E9D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE00EF0F2360DC1A00200E9D /* AccountViewController.swift */; };
 		FE4F5A0B235A0DAC0075CE55 /* OrderListPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4F5A0A235A0DAC0075CE55 /* OrderListPageViewController.swift */; };
 		FE757A6E2359F63400B3CD89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE757A6D2359F63300B3CD89 /* AppDelegate.swift */; };
 		FE757A702359F63400B3CD89 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE757A6F2359F63400B3CD89 /* SceneDelegate.swift */; };
@@ -24,6 +25,7 @@
 		03083E9B500F8623F5E798C4 /* Pods-car_Banner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-car_Banner.debug.xcconfig"; path = "Target Support Files/Pods-car_Banner/Pods-car_Banner.debug.xcconfig"; sourceTree = "<group>"; };
 		BB896C595D35D408D39799A7 /* Pods-car_Banner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-car_Banner.release.xcconfig"; path = "Target Support Files/Pods-car_Banner/Pods-car_Banner.release.xcconfig"; sourceTree = "<group>"; };
 		CC88840164860804687B5A73 /* Pods_car_Banner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_car_Banner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE00EF0F2360DC1A00200E9D /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		FE4F5A0A235A0DAC0075CE55 /* OrderListPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListPageViewController.swift; sourceTree = "<group>"; };
 		FE757A6A2359F63300B3CD89 /* car_Banner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = car_Banner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE757A6D2359F63300B3CD89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,14 +58,30 @@
 				03083E9B500F8623F5E798C4 /* Pods-car_Banner.debug.xcconfig */,
 				BB896C595D35D408D39799A7 /* Pods-car_Banner.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FE00EF0D2360DBDD00200E9D /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				FE00EF0F2360DC1A00200E9D /* AccountViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		FE00EF0E2360DBE700200E9D /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				FE4F5A0A235A0DAC0075CE55 /* OrderListPageViewController.swift */,
+			);
+			path = Orders;
 			sourceTree = "<group>";
 		};
 		FE53CBC8235CCBF8006500FE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FE4F5A0A235A0DAC0075CE55 /* OrderListPageViewController.swift */,
+				FE00EF0E2360DBE700200E9D /* Orders */,
+				FE00EF0D2360DBDD00200E9D /* Account */,
 				FE757A812359F6CA00B3CD89 /* SignInViewController.swift */,
 				FE757A832359F8EF00B3CD89 /* RegisterUserViewController.swift */,
 			);
@@ -229,6 +247,7 @@
 			files = (
 				FE757A842359F8EF00B3CD89 /* RegisterUserViewController.swift in Sources */,
 				FE757A822359F6CA00B3CD89 /* SignInViewController.swift in Sources */,
+				FE00EF102360DC1A00200E9D /* AccountViewController.swift in Sources */,
 				FE757A722359F63400B3CD89 /* ViewController.swift in Sources */,
 				FE93225C2360417100493967 /* MainTabBarViewController.swift in Sources */,
 				FE757A6E2359F63400B3CD89 /* AppDelegate.swift in Sources */,

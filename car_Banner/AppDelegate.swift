@@ -7,14 +7,26 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
+        if accessToken != nil
+        {
+           DispatchQueue.main.async
+            {
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = mainStoryboard.instantiateViewController(withIdentifier: "MainTabBarViewController") as! MainTabBarViewController
+                UIApplication.shared.keyWindow?.rootViewController = vc
+            }
+        }
         return true
     }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class OrderListPageViewController: UIViewController {
     @IBOutlet var userFullNameLabel: UIView!
@@ -19,6 +20,17 @@ class OrderListPageViewController: UIViewController {
     }
     
     @IBAction func signOutButtonClicked(_ sender: Any) {
+        KeychainWrapper.standard.removeObject(forKey: "accessToken")
+        KeychainWrapper.standard.removeObject(forKey: "userId")
+        
+        DispatchQueue.main.async
+        {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+        UIApplication.shared.keyWindow?.rootViewController = vc
+        }
+        
+
     }
     @IBAction func loadMembersButtonClicked(_ sender: Any) {
     }

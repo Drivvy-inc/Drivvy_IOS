@@ -53,7 +53,7 @@ class SignInViewController: UIViewController {
             displayMessage(userMessage: error.localizedDescription)
             return
         }
-        
+        // MARK: - Post Request
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?)
             in
             
@@ -106,6 +106,8 @@ class SignInViewController: UIViewController {
         }
         task.resume()
     }
+    // MARK: - registerButtonClicked
+
     @IBAction func registerButtonClicked(_ sender: Any) {
         print("Register Button")
 
