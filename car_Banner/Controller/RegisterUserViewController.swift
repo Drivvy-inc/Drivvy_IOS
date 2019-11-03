@@ -39,7 +39,7 @@ class RegisterUserViewController: UIViewController {
         myActivityIndicator.startAnimating()
         view.addSubview(myActivityIndicator)
 
-        let myUrl = URL(string: "http://0d7bdb6c.ngrok.io/api/user/registerDriver")
+        let myUrl = URL(string: "http://6445cf2c.ngrok.io/api/user/registerDriver")
         
         let parameters = ["name": nameRegTextField.text!,
                           "email": emailRegTextField.text!,
@@ -70,10 +70,29 @@ class RegisterUserViewController: UIViewController {
                 return
             }
             
+            if let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode == 401 {
+                    print("error \(httpResponse.statusCode)")
+                    self.displayMessage(userMessage: "This email alredy exist")
+                    return
+                } else if httpResponse.statusCode == 400 {
+                   print("error \(httpResponse.statusCode)")
+                   self.displayMessage(userMessage: "Something wrong! Please check all fields, and try again later )")
+                   return
+               }
+            }
+            
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-                
+
                 if let parseJSON = json{
+                    
+                    let errorCode1 = parseJSON["error"] as? String
+                    let errorCode = String(describing: errorCode1)
+                    if  errorCode == "400"{
+                        self.displayMessage(userMessage: errorCode)
+                        return 
+                    }
                     
                     let userId = parseJSON["_id"] as? String
                     print("UserId=\(String(describing: userId))")
@@ -97,39 +116,6 @@ class RegisterUserViewController: UIViewController {
             }
         }
         task.resume()
-                    
-        //        session.dataTask(with: request) { (data, response, error) in
-        //            if let response = response {
-        //                print(response)
-        //            }
-        //            guard let data = data else { return }
-        //            print (data)
-        //            do {
-        //                let json = try JSONSerialization.jsonObject(with: data, options: [])
-        //                print (json)
-        //            }catch {
-        //                print(error)
-        //            }
-        //        }.resume()
-                
-        //       !!!!!!! GET !!!!!!!!!!
-        //        let session = URLSession.shared
-        //        session.dataTask(with: myUrl) { (data, response, error) in
-        //            if let response = response {
-        //                print(response)
-        //            }
-        //
-        //            guard let data = data else { return }
-        //            print (data)
-        //
-        //            do {
-        //                let json = try JSONSerialization.jsonObject(with: data, options: [])
-        //                print (json)
-        //            }catch {
-        //                print(error)
-        //            }
-        //
-        //        }.resume()
     }
     
     @IBAction func cancelRegButtonClicked(_ sender: Any) {

@@ -37,7 +37,7 @@ class SignInViewController: UIViewController {
           myActivityIndicator.startAnimating()
           view.addSubview(myActivityIndicator)
         
-        let myUrl = URL(string: "http://0d7bdb6c.ngrok.io/api/user/loginDriver")
+        let myUrl = URL(string: "http://6445cf2c.ngrok.io/api/user/loginDriver")
         var request = URLRequest(url: myUrl!)
            request.httpMethod = "POST"
            request.addValue("application/json", forHTTPHeaderField: "content-type")
@@ -64,6 +64,18 @@ class SignInViewController: UIViewController {
                 print("error=\(String(describing: error))")
                 return
             }
+            
+            if let httpResponse = response as? HTTPURLResponse {
+               if httpResponse.statusCode == 401 {
+                   print("error \(httpResponse.statusCode)")
+                   self.displayMessage(userMessage: "Email or Password inccorect!")
+                   return
+               } else if httpResponse.statusCode == 400 {
+                  print("error \(httpResponse.statusCode)")
+                  self.displayMessage(userMessage: "Something wrong! Please check all fields, and try again later )")
+                  return
+              }
+           }
             
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
