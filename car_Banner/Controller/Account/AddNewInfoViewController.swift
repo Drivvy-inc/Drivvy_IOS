@@ -34,7 +34,7 @@ class AddNewInfoViewController: UIViewController {
         myActivityIndicator.startAnimating()
         view.addSubview(myActivityIndicator)
 
-        let myUrl = URL(string: "http://6445cf2c.ngrok.io/api/account/addInfo")
+        let myUrl = URL(string: "http://a56346bb.ngrok.io/api/account/addInfo")
         
         var request              = URLRequest(url: myUrl!)
         request.httpMethod       = "PUT"

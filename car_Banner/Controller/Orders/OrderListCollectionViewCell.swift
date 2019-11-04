@@ -11,6 +11,5 @@ class OrderListCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var locationImage: UIImageView!
     @IBOutlet weak var locationName: UILabel!
-    @IBOutlet weak var locationDescription: UILabel!
     
 }

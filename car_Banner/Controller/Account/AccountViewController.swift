@@ -37,7 +37,7 @@ class AccountViewController: UIViewController {
         let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
         let userId: String?      = KeychainWrapper.standard.string(forKey: "userId")
 
-        let myUrl                = URL(string: "http://6445cf2c.ngrok.io/api/account/home")
+        let myUrl                = URL(string: "http://a56346bb.ngrok.io/api/account/home")
         var request              = URLRequest(url: myUrl!)
         request.httpMethod       = "POST"
         request.addValue("application/json", forHTTPHeaderField: "content-type")
