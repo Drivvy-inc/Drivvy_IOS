@@ -98,21 +98,20 @@ class AddNewInfoViewController: UIViewController {
     
     func displayMessage(userMessage: String) -> Void {
           DispatchQueue.main.async{
-              let alertController = UIAlertController(
+            let alertController = UIAlertController(
                   title: "Alert",
                   message: userMessage,
                   preferredStyle: .alert)
               
-              let OKAction = UIAlertAction(
+            let OKAction = UIAlertAction(
                   title: "OK",
                   style: .default) { (action:UIAlertAction!) in
                     print ("Ok button prassed")
                     self.navigationController?.popToRootViewController(animated: true)
-                
               }
-              
-              alertController.addAction(OKAction)
-              self.present(alertController, animated: true, completion: nil)
+           
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion: nil)
               
           }
       }

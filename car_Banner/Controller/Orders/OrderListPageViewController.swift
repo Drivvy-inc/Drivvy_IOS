@@ -14,6 +14,8 @@ class OrderListPageViewController: UIViewController{
     @IBOutlet weak var CollectioViewOrderList: UICollectionView!
     
     var companyName: [String] = []
+    var companyId: [String] = []
+
     let locationImages = [UIImage(named: "Uber"), UIImage(named: "Uklon"), UIImage(named: "scubaDiving")]
 
     override func viewDidLoad() {
@@ -84,6 +86,11 @@ class OrderListPageViewController: UIViewController{
                                     self.companyName.append(addData)
                                     print(self.companyName[i])
                                 }
+                                for i in 0..<parseJSON.count {
+                                    let addData: String = ((parseJSON[i] as AnyObject).object(forKey: "_id") as? String)!
+                                    self.companyId.append(addData)
+                                    print(self.companyId[i])
+                                }
                                 self.CollectioViewOrderList.reloadData()
                             }
                     } else {
@@ -140,6 +147,7 @@ extension OrderListPageViewController: UICollectionViewDataSource, UICollectionV
         
         OrderViewController.image = locationImages[indexPath.row]!
         OrderViewController.orderCompanyNameParse = companyName[indexPath.row]
+        OrderViewController.orderCompanyIdParse = companyId[indexPath.row]
 
         self.present(OrderViewController,animated: true)
     }

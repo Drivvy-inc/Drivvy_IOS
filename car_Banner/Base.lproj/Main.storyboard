@@ -83,7 +83,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Uber" translatesAutoresizingMaskIntoConstraints="NO" id="q0S-j7-fbn">
-                                <rect key="frame" x="20" y="94.999999999999986" width="374.00000000000023" height="252.66666666666663"/>
+                                <rect key="frame" x="20" y="94.999999999999986" width="374" height="252.66666666666663"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="q0S-j7-fbn" secondAttribute="height" multiplier="37:25" id="gYM-X4-kWt"/>
                                 </constraints>
@@ -94,14 +94,60 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Liz-xO-0QZ">
+                                <rect key="frame" x="0.0" y="750" width="414" height="92"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elp-rJ-Nvf">
+                                        <rect key="frame" x="230" y="20" width="164" height="52"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="164" id="IfG-JE-sau"/>
+                                            <constraint firstAttribute="height" constant="52" id="gBj-th-odd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="35"/>
+                                        <state key="normal" title="Сonfirm">
+                                            <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="confirmOrderButton:" destination="mRD-JO-EVI" eventType="touchUpInside" id="wSr-Ts-beE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="701-ec-Gxr">
+                                        <rect key="frame" x="20" y="20" width="164" height="52"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="dce-av-dLO"/>
+                                            <constraint firstAttribute="width" constant="164" id="qQ4-MB-76T"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="35"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelOrderButton:" destination="mRD-JO-EVI" eventType="touchUpInside" id="TLo-bi-UWH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="701-ec-Gxr" secondAttribute="bottom" constant="20" id="6rq-l7-W5g"/>
+                                    <constraint firstItem="701-ec-Gxr" firstAttribute="top" secondItem="Liz-xO-0QZ" secondAttribute="top" constant="20" id="C7d-xC-ay1"/>
+                                    <constraint firstAttribute="width" secondItem="Liz-xO-0QZ" secondAttribute="height" multiplier="9:2" id="Hiz-Tb-dwc"/>
+                                    <constraint firstItem="701-ec-Gxr" firstAttribute="leading" secondItem="Liz-xO-0QZ" secondAttribute="leading" constant="20" id="Ikq-Xe-1Ef"/>
+                                    <constraint firstAttribute="trailing" secondItem="elp-rJ-Nvf" secondAttribute="trailing" constant="20" id="QyO-IH-ZZz"/>
+                                    <constraint firstAttribute="bottom" secondItem="elp-rJ-Nvf" secondAttribute="bottom" constant="20" id="ntH-MX-juz"/>
+                                    <constraint firstItem="elp-rJ-Nvf" firstAttribute="top" secondItem="Liz-xO-0QZ" secondAttribute="top" constant="20" id="wlB-rd-Ie3"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="q0S-j7-fbn" firstAttribute="leading" secondItem="l9i-Pv-ggX" secondAttribute="leading" id="T9c-o5-tCc"/>
+                            <constraint firstItem="Liz-xO-0QZ" firstAttribute="leading" secondItem="8Si-dL-h42" secondAttribute="leading" id="Uk2-aj-qC5"/>
                             <constraint firstItem="q0S-j7-fbn" firstAttribute="top" secondItem="8Si-dL-h42" secondAttribute="top" constant="51" id="aIr-Z8-Rfe"/>
                             <constraint firstItem="q0S-j7-fbn" firstAttribute="trailing" secondItem="l9i-Pv-ggX" secondAttribute="trailing" id="adb-rc-iVH"/>
                             <constraint firstItem="q0S-j7-fbn" firstAttribute="leading" secondItem="f0t-y4-eHU" secondAttribute="leadingMargin" id="dQa-9b-XO0"/>
+                            <constraint firstItem="Liz-xO-0QZ" firstAttribute="trailing" secondItem="8Si-dL-h42" secondAttribute="trailing" id="nvO-YD-mhi"/>
                             <constraint firstItem="l9i-Pv-ggX" firstAttribute="top" secondItem="q0S-j7-fbn" secondAttribute="bottom" constant="40" id="pxY-GA-hWu"/>
+                            <constraint firstItem="8Si-dL-h42" firstAttribute="bottom" secondItem="Liz-xO-0QZ" secondAttribute="bottom" constant="20" id="qLv-ON-22d"/>
                             <constraint firstItem="q0S-j7-fbn" firstAttribute="trailing" secondItem="f0t-y4-eHU" secondAttribute="trailingMargin" id="yRQ-kF-mok"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Si-dL-h42"/>
@@ -113,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gjZ-N8-T7W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1445" y="2458"/>
+            <point key="canvasLocation" x="1444.9275362318842" y="2457.5892857142858"/>
         </scene>
         <!--Register User View Controller-->
         <scene sceneID="ZKs-0i-pl9">
