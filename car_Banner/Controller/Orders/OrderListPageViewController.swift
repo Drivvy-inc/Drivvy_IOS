@@ -15,7 +15,6 @@ class OrderListPageViewController: UIViewController{
     
     var companyName: [String] = []
     var companyId: [String] = []
-
     let locationImages = [UIImage(named: "Uber"), UIImage(named: "Uklon"), UIImage(named: "scubaDiving")]
 
     override func viewDidLoad() {
@@ -45,7 +44,8 @@ class OrderListPageViewController: UIViewController{
             
         }
     }
-    
+    // MARK: - Function for load all Orders for user
+
     func loadAllOrders(){
         let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
 
@@ -111,14 +111,11 @@ class OrderListPageViewController: UIViewController{
 
 }
 
+// MARK: - OrderListPageViewController
 extension OrderListPageViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return companyName.count
     }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! OrderListCollectionViewCell
@@ -137,7 +134,6 @@ extension OrderListPageViewController: UICollectionViewDataSource, UICollectionV
         cell.layer.shadowOpacity = 1.0
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
-        
         
         return cell
     }
