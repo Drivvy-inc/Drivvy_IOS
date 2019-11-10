@@ -34,7 +34,7 @@ class AddNewInfoViewController: UIViewController {
         myActivityIndicator.startAnimating()
         view.addSubview(myActivityIndicator)
 
-        let myUrl = URL(string: "http://6445cf2c.ngrok.io/api/account/addInfo")
+        let myUrl = URL(string: "http://a56346bb.ngrok.io/api/account/addInfo")
         
         var request              = URLRequest(url: myUrl!)
         request.httpMethod       = "PUT"
@@ -98,21 +98,20 @@ class AddNewInfoViewController: UIViewController {
     
     func displayMessage(userMessage: String) -> Void {
           DispatchQueue.main.async{
-              let alertController = UIAlertController(
+            let alertController = UIAlertController(
                   title: "Alert",
                   message: userMessage,
                   preferredStyle: .alert)
               
-              let OKAction = UIAlertAction(
+            let OKAction = UIAlertAction(
                   title: "OK",
                   style: .default) { (action:UIAlertAction!) in
                     print ("Ok button prassed")
                     self.navigationController?.popToRootViewController(animated: true)
-                
               }
-              
-              alertController.addAction(OKAction)
-              self.present(alertController, animated: true, completion: nil)
+           
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion: nil)
               
           }
       }

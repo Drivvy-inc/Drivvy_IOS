@@ -13,22 +13,13 @@ import Alamofire
 class OrderListPageViewController: UIViewController{
     @IBOutlet weak var CollectioViewOrderList: UICollectionView!
     
-    var numOfItems: Int = 0
     var companyName: [String] = []
-    var locationImage = [UIImage(named: "1"), UIImage(named: "2")]
-
-    let locationNames = ["Hawaii Resort", "Mountain Expedition", "Scuba Diving"]
-  
-    let locationImages = [UIImage(named: "hawaiiResort"), UIImage(named: "mountainExpedition"), UIImage(named: "scubaDiving")]
-  
-    let locationDescription = ["Beautiful resort off the coast of Hawaii", "Exhilarating mountainous expedition through Yosemite National Park", "Awesome Scuba Diving adventure in the Gulf of Mexico"]
-    
-    
+    var companyId: [String] = []
+    let locationImages = [UIImage(named: "Uber"), UIImage(named: "Uklon"), UIImage(named: "scubaDiving")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAllOrders()
-        
         // Do any additional setup after loading the view.
     }
     
@@ -53,11 +44,12 @@ class OrderListPageViewController: UIViewController{
             
         }
     }
-    
+    // MARK: - Function for load all Orders for user
+
     func loadAllOrders(){
         let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
 
-        let myUrl                = URL(string: "http://6445cf2c.ngrok.io/api/order/listOrders")
+        let myUrl                = URL(string: "http://a56346bb.ngrok.io/api/order/listOrders")
         var request              = URLRequest(url: myUrl!)
         request.httpMethod       = "GET"
         request.addValue("application/json", forHTTPHeaderField: "content-type")
@@ -89,11 +81,15 @@ class OrderListPageViewController: UIViewController{
 
                             DispatchQueue.main.async
                             {
-                                self.numOfItems = parseJSON.count
                                 for i in 0..<parseJSON.count {
                                     let addData: String = ((parseJSON[i] as AnyObject).object(forKey: "companyName") as? String)!
                                     self.companyName.append(addData)
                                     print(self.companyName[i])
+                                }
+                                for i in 0..<parseJSON.count {
+                                    let addData: String = ((parseJSON[i] as AnyObject).object(forKey: "_id") as? String)!
+                                    self.companyId.append(addData)
+                                    print(self.companyId[i])
                                 }
                                 self.CollectioViewOrderList.reloadData()
                             }
@@ -115,21 +111,17 @@ class OrderListPageViewController: UIViewController{
 
 }
 
-extension OrderListPageViewController: UICollectionViewDataSource {
-    
-    
+// MARK: - OrderListPageViewController
+extension OrderListPageViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numOfItems
+        return companyName.count
     }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! OrderListCollectionViewCell
         
         cell.locationImage.image = locationImages[indexPath.row]
         cell.locationName.text = companyName[indexPath.row]
-        cell.locationDescription.text = locationDescription[indexPath.row]
         
         //This creates the shadows and modifies the cards a little bit
         cell.contentView.layer.cornerRadius = 4.0
@@ -143,8 +135,17 @@ extension OrderListPageViewController: UICollectionViewDataSource {
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
         
-        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let OrderViewController = self.storyboard?.instantiateViewController(withIdentifier: "OrderViewController") as!  OrderViewController
+        
+        OrderViewController.image = locationImages[indexPath.row]!
+        OrderViewController.orderCompanyNameParse = companyName[indexPath.row]
+        OrderViewController.orderCompanyIdParse = companyId[indexPath.row]
+
+        self.present(OrderViewController,animated: true)
     }
 }
 
