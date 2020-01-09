@@ -49,7 +49,7 @@ class OrderViewController: UIViewController {
     func displayMessage(userMessage: String, companyId: Any) -> Void {
         DispatchQueue.main.async{
             let alertController = UIAlertController(
-                title: "Alart",
+                title: "Alert",
                 message: "You are sure that you want to confirm the order from: " + userMessage,
                 preferredStyle: .alert)
             
@@ -105,7 +105,7 @@ class OrderViewController: UIViewController {
     func confirmOrder(companyName: String, companyId: Any){
         let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
 
-        let myUrl = URL(string: "http://a56346bb.ngrok.io/api/order/confirmOrder")
+        let myUrl = URL(string: "http://027af41b.ngrok.io/api/order/confirmOrder")
         var request              = URLRequest(url: myUrl!)
         request.httpMethod       = "PUT"
         request.addValue("application/json", forHTTPHeaderField: "content-type")

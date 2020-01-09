@@ -12,6 +12,8 @@
 		FE05724123634541009618A7 /* AddNewInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05724023634541009618A7 /* AddNewInfoViewController.swift */; };
 		FE1A7B232369EF4100231B1F /* OrderListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1A7B222369EF4100231B1F /* OrderListCollectionViewCell.swift */; };
 		FE235B6F23707A820076B6C9 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE235B6E23707A820076B6C9 /* OrderViewController.swift */; };
+		FE291CA123A65F6300069536 /* PhoneVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE291CA023A65F6300069536 /* PhoneVerificationViewController.swift */; };
+		FE291CA423A660F700069536 /* displayMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE291CA323A660F700069536 /* displayMessage.swift */; };
 		FE4F5A0B235A0DAC0075CE55 /* OrderListPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4F5A0A235A0DAC0075CE55 /* OrderListPageViewController.swift */; };
 		FE757A6E2359F63400B3CD89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE757A6D2359F63300B3CD89 /* AppDelegate.swift */; };
 		FE757A702359F63400B3CD89 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE757A6F2359F63400B3CD89 /* SceneDelegate.swift */; };
@@ -33,6 +35,8 @@
 		FE05724023634541009618A7 /* AddNewInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewInfoViewController.swift; sourceTree = "<group>"; };
 		FE1A7B222369EF4100231B1F /* OrderListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListCollectionViewCell.swift; sourceTree = "<group>"; };
 		FE235B6E23707A820076B6C9 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		FE291CA023A65F6300069536 /* PhoneVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationViewController.swift; sourceTree = "<group>"; };
+		FE291CA323A660F700069536 /* displayMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = displayMessage.swift; sourceTree = "<group>"; };
 		FE4F5A0A235A0DAC0075CE55 /* OrderListPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListPageViewController.swift; sourceTree = "<group>"; };
 		FE757A6A2359F63300B3CD89 /* car_Banner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = car_Banner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE757A6D2359F63300B3CD89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,13 +92,22 @@
 			path = Orders;
 			sourceTree = "<group>";
 		};
+		FE291CA223A65F7C00069536 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				FE757A832359F8EF00B3CD89 /* RegisterUserViewController.swift */,
+				FE291CA023A65F6300069536 /* PhoneVerificationViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		FE53CBC8235CCBF8006500FE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FE291CA223A65F7C00069536 /* Register */,
 				FE00EF0E2360DBE700200E9D /* Orders */,
 				FE00EF0D2360DBDD00200E9D /* Account */,
 				FE757A812359F6CA00B3CD89 /* SignInViewController.swift */,
-				FE757A832359F8EF00B3CD89 /* RegisterUserViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -130,6 +143,7 @@
 				FE757A762359F63400B3CD89 /* Assets.xcassets */,
 				FE757A782359F63400B3CD89 /* LaunchScreen.storyboard */,
 				FE757A7B2359F63400B3CD89 /* Info.plist */,
+				FE291CA323A660F700069536 /* displayMessage.swift */,
 			);
 			path = car_Banner;
 			sourceTree = "<group>";
@@ -265,7 +279,9 @@
 				FE05724123634541009618A7 /* AddNewInfoViewController.swift in Sources */,
 				FE757A6E2359F63400B3CD89 /* AppDelegate.swift in Sources */,
 				FE4F5A0B235A0DAC0075CE55 /* OrderListPageViewController.swift in Sources */,
+				FE291CA423A660F700069536 /* displayMessage.swift in Sources */,
 				FE9B2DD32371DB2E00FAFE77 /* Global.swift in Sources */,
+				FE291CA123A65F6300069536 /* PhoneVerificationViewController.swift in Sources */,
 				FE757A702359F63400B3CD89 /* SceneDelegate.swift in Sources */,
 				FE235B6F23707A820076B6C9 /* OrderViewController.swift in Sources */,
 				FE1A7B232369EF4100231B1F /* OrderListCollectionViewCell.swift in Sources */,
