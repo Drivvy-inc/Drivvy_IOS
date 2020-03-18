@@ -49,6 +49,7 @@ class OrderListPageViewController: UIViewController{
     func loadAllOrders(){
         let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
 
+        let test = "test"
         let myUrl                = URL(string: "http://a56346bb.ngrok.io/api/order/listOrders")
         var request              = URLRequest(url: myUrl!)
         request.httpMethod       = "GET"
