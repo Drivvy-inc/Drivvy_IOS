@@ -8,14 +8,28 @@
 
 import UIKit
 import SwiftKeychainWrapper
+import SkyFloatingLabelTextField
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
+    @IBOutlet weak var signInButton: UIButton!
+    
+    @IBAction func cancelButtonClicked(_ sender: Any) {
+        DispatchQueue.main.async{
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        Settings.shered.buttonsParametrs(obj: signInButton, rad: 25)
+        self.userNameTextField.addBottomBorder()
+        self.userPasswordTextField.addBottomBorder()
+        self.userNameTextField.delegate = self
+        self.userPasswordTextField.delegate = self
 
+        super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
     }
     @IBAction func signInButtonClicked(_ sender: Any) {
@@ -36,8 +50,9 @@ class SignInViewController: UIViewController {
         myActivityIndicator.hidesWhenStopped = false
           myActivityIndicator.startAnimating()
           view.addSubview(myActivityIndicator)
+        let endpoint = Settings.shered.endpoint
         
-        let myUrl = URL(string: "http://a56346bb.ngrok.io/api/user/loginDriver")
+        let myUrl = URL(string: endpoint + "api/user/loginDriver")
         var request = URLRequest(url: myUrl!)
            request.httpMethod = "POST"
            request.addValue("application/json", forHTTPHeaderField: "content-type")
@@ -134,6 +149,11 @@ class SignInViewController: UIViewController {
             activityIndicator.removeFromSuperview()
         }
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 
     func displayMessage(userMessage: String) -> Void {
         DispatchQueue.main.async{
@@ -146,9 +166,7 @@ class SignInViewController: UIViewController {
                 title: "OK",
                 style: .default) { (action:UIAlertAction!) in
                     print ("Ok button prassed")
-                    DispatchQueue.main.async{
-                        self.dismiss(animated: true, completion: nil)
-                    }
+                    
             }
             
             alertController.addAction(OKAction)
@@ -156,4 +174,15 @@ class SignInViewController: UIViewController {
             
         }
     }
+    
 }
+//
+//extension UITextField {
+//    func addBottomBorder(){
+//        let bottomLine = CALayer()
+//        bottomLine.frame = CGRect(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: 1)
+//        bottomLine.backgroundColor = UIColor.systemYellow.cgColor
+//        borderStyle = .none
+//        layer.addSublayer(bottomLine)
+//    }
+//}

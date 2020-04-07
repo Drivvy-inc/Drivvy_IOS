@@ -28,13 +28,14 @@ class AddNewInfoViewController: UIViewController {
                return displayMessage(userMessage: "All fields are quired to fill in!")
            }
         
-        let myActivityIndicator = UIActivityIndicatorView( style: UIActivityIndicatorView.Style.medium )
+        let myActivityIndicator    = UIActivityIndicatorView( style: UIActivityIndicatorView.Style.medium )
         myActivityIndicator.center = view.center
         myActivityIndicator.hidesWhenStopped = false
         myActivityIndicator.startAnimating()
         view.addSubview(myActivityIndicator)
+        let endpoint = Settings.shered.endpoint
 
-        let myUrl = URL(string: "http://a56346bb.ngrok.io/api/account/addInfo")
+        let myUrl = URL(string: endpoint + "api/account/addInfo")
         
         var request              = URLRequest(url: myUrl!)
         request.httpMethod       = "PUT"
@@ -108,8 +109,10 @@ class AddNewInfoViewController: UIViewController {
                   style: .default) { (action:UIAlertAction!) in
                     print ("Ok button prassed")
                     self.navigationController?.popToRootViewController(animated: true)
+                    NotificationCenter.default.post(name: NSNotification.Name("Reload Account"), object: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name("Reload Order List"), object: nil)
+
               }
-           
             alertController.addAction(OKAction)
             self.present(alertController, animated: true, completion: nil)
               

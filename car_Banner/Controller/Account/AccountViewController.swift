@@ -20,6 +20,7 @@ class AccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: NSNotification.Name("Reload Account"), object: nil)
         loadMemberProfile()
     }
     
@@ -36,8 +37,8 @@ class AccountViewController: UIViewController {
     {
         let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
         let userId: String?      = KeychainWrapper.standard.string(forKey: "userId")
-
-        let myUrl                = URL(string: "http://a56346bb.ngrok.io/api/account/home")
+        let endpoint = Settings.shered.endpoint
+        let myUrl                = URL(string: endpoint + "api/account/home")
         var request              = URLRequest(url: myUrl!)
         request.httpMethod       = "POST"
         request.addValue("application/json", forHTTPHeaderField: "content-type")
@@ -68,11 +69,11 @@ class AccountViewController: UIViewController {
 
                             DispatchQueue.main.async
                             {
-                                let name   = parseJSON["name"] as? String
+                                let name  = parseJSON["name"] as? String
                                 let phone = parseJSON["phone"] as? String
                                 let email = parseJSON["email"] as? String
-                                let km   = parseJSON["km"] as? String
-                                let car = parseJSON["car"] as? String
+                                let km    = parseJSON["km"] as? String
+                                let car   = parseJSON["car"] as? String
                                 if name?.isEmpty != nil{
                                     self.userNameLabel.text   = name!
                                     self.userNumberLabel.text = phone!
@@ -140,9 +141,9 @@ class AccountViewController: UIViewController {
                         
                         DispatchQueue.main.async
                         {
-                        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        let vc = mainStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
-                        UIApplication.shared.keyWindow?.rootViewController = vc
+                            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                            let vc = mainStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+                            UIApplication.shared.keyWindow?.rootViewController = vc
                         }
                         self.dismiss(animated: true, completion: nil)
             }
@@ -160,5 +161,9 @@ class AccountViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
             
         }
+    }
+    
+    @objc func reloadData(){
+        self.viewDidLoad()
     }
 }
