@@ -8,7 +8,6 @@
 
 import UIKit
 import SwiftKeychainWrapper
-import SkyFloatingLabelTextField
 
 class SignInViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var userNameTextField: UITextField!

@@ -3,49 +3,59 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A5656986A0F5E15D54BB0BD9 /* Pods_car_Banner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC88840164860804687B5A73 /* Pods_car_Banner.framework */; };
+		0432DFC7243C57640014E858 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432DFC6243C57640014E858 /* LocationViewController.swift */; };
+		049F91EC2424F1D9006BBE71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F91EB2424F1D9006BBE71 /* Main.storyboard */; };
+		04A8715724291C5A00F5F10C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8715624291C5A00F5F10C /* Settings.swift */; };
+		04A8715D24293AEF00F5F10C /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8715C24293AEF00F5F10C /* FirstScreenViewController.swift */; };
+		04CABC682433B74D00B953E4 /* RegisterLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CABC672433B74D00B953E4 /* RegisterLabelViewController.swift */; };
+		3A0593FE534CCA20DDE7CC4B /* libPods-car_Banner.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFF4EB00B37143E9E005D56D /* libPods-car_Banner.a */; };
 		FE00EF102360DC1A00200E9D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE00EF0F2360DC1A00200E9D /* AccountViewController.swift */; };
 		FE05724123634541009618A7 /* AddNewInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05724023634541009618A7 /* AddNewInfoViewController.swift */; };
 		FE1A7B232369EF4100231B1F /* OrderListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1A7B222369EF4100231B1F /* OrderListCollectionViewCell.swift */; };
 		FE235B6F23707A820076B6C9 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE235B6E23707A820076B6C9 /* OrderViewController.swift */; };
+		FE291CA123A65F6300069536 /* PhoneVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE291CA023A65F6300069536 /* PhoneVerificationViewController.swift */; };
+		FE291CA423A660F700069536 /* displayMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE291CA323A660F700069536 /* displayMessage.swift */; };
 		FE4F5A0B235A0DAC0075CE55 /* OrderListPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4F5A0A235A0DAC0075CE55 /* OrderListPageViewController.swift */; };
 		FE757A6E2359F63400B3CD89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE757A6D2359F63300B3CD89 /* AppDelegate.swift */; };
 		FE757A702359F63400B3CD89 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE757A6F2359F63400B3CD89 /* SceneDelegate.swift */; };
 		FE757A722359F63400B3CD89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE757A712359F63400B3CD89 /* ViewController.swift */; };
-		FE757A752359F63400B3CD89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE757A732359F63400B3CD89 /* Main.storyboard */; };
 		FE757A772359F63400B3CD89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE757A762359F63400B3CD89 /* Assets.xcassets */; };
 		FE757A7A2359F63400B3CD89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE757A782359F63400B3CD89 /* LaunchScreen.storyboard */; };
 		FE757A822359F6CA00B3CD89 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE757A812359F6CA00B3CD89 /* SignInViewController.swift */; };
 		FE757A842359F8EF00B3CD89 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE757A832359F8EF00B3CD89 /* RegisterUserViewController.swift */; };
 		FE93225C2360417100493967 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93225B2360417100493967 /* MainTabBarViewController.swift */; };
-		FE9B2DD32371DB2E00FAFE77 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9B2DD22371DB2D00FAFE77 /* Global.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		03083E9B500F8623F5E798C4 /* Pods-car_Banner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-car_Banner.debug.xcconfig"; path = "Target Support Files/Pods-car_Banner/Pods-car_Banner.debug.xcconfig"; sourceTree = "<group>"; };
+		0432DFC6243C57640014E858 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		049F91EB2424F1D9006BBE71 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		04A8715624291C5A00F5F10C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		04A8715C24293AEF00F5F10C /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
+		04CABC672433B74D00B953E4 /* RegisterLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLabelViewController.swift; sourceTree = "<group>"; };
 		BB896C595D35D408D39799A7 /* Pods-car_Banner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-car_Banner.release.xcconfig"; path = "Target Support Files/Pods-car_Banner/Pods-car_Banner.release.xcconfig"; sourceTree = "<group>"; };
-		CC88840164860804687B5A73 /* Pods_car_Banner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_car_Banner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFF4EB00B37143E9E005D56D /* libPods-car_Banner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-car_Banner.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE00EF0F2360DC1A00200E9D /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		FE05724023634541009618A7 /* AddNewInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewInfoViewController.swift; sourceTree = "<group>"; };
 		FE1A7B222369EF4100231B1F /* OrderListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListCollectionViewCell.swift; sourceTree = "<group>"; };
 		FE235B6E23707A820076B6C9 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		FE291CA023A65F6300069536 /* PhoneVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationViewController.swift; sourceTree = "<group>"; };
+		FE291CA323A660F700069536 /* displayMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = displayMessage.swift; sourceTree = "<group>"; };
 		FE4F5A0A235A0DAC0075CE55 /* OrderListPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListPageViewController.swift; sourceTree = "<group>"; };
 		FE757A6A2359F63300B3CD89 /* car_Banner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = car_Banner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE757A6D2359F63300B3CD89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE757A6F2359F63400B3CD89 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FE757A712359F63400B3CD89 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FE757A742359F63400B3CD89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE757A762359F63400B3CD89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE757A792359F63400B3CD89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE757A7B2359F63400B3CD89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE757A812359F6CA00B3CD89 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		FE757A832359F8EF00B3CD89 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		FE93225B2360417100493967 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
-		FE9B2DD22371DB2D00FAFE77 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,13 +63,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5656986A0F5E15D54BB0BD9 /* Pods_car_Banner.framework in Frameworks */,
+				3A0593FE534CCA20DDE7CC4B /* libPods-car_Banner.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0417A7C6243B9F0D00B5A1D6 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				0432DFC6243C57640014E858 /* LocationViewController.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		AE28241A62E41773A94B0716 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,13 +106,25 @@
 			path = Orders;
 			sourceTree = "<group>";
 		};
+		FE291CA223A65F7C00069536 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				FE757A832359F8EF00B3CD89 /* RegisterUserViewController.swift */,
+				FE291CA023A65F6300069536 /* PhoneVerificationViewController.swift */,
+				04CABC672433B74D00B953E4 /* RegisterLabelViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		FE53CBC8235CCBF8006500FE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0417A7C6243B9F0D00B5A1D6 /* Location */,
+				FE291CA223A65F7C00069536 /* Register */,
 				FE00EF0E2360DBE700200E9D /* Orders */,
 				FE00EF0D2360DBDD00200E9D /* Account */,
 				FE757A812359F6CA00B3CD89 /* SignInViewController.swift */,
-				FE757A832359F8EF00B3CD89 /* RegisterUserViewController.swift */,
+				04A8715C24293AEF00F5F10C /* FirstScreenViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -124,12 +154,13 @@
 				FE757A6F2359F63400B3CD89 /* SceneDelegate.swift */,
 				FE757A712359F63400B3CD89 /* ViewController.swift */,
 				FE93225B2360417100493967 /* MainTabBarViewController.swift */,
-				FE9B2DD22371DB2D00FAFE77 /* Global.swift */,
-				FE757A732359F63400B3CD89 /* Main.storyboard */,
+				049F91EB2424F1D9006BBE71 /* Main.storyboard */,
 				FE53CBC8235CCBF8006500FE /* Controller */,
 				FE757A762359F63400B3CD89 /* Assets.xcassets */,
 				FE757A782359F63400B3CD89 /* LaunchScreen.storyboard */,
 				FE757A7B2359F63400B3CD89 /* Info.plist */,
+				FE291CA323A660F700069536 /* displayMessage.swift */,
+				04A8715624291C5A00F5F10C /* Settings.swift */,
 			);
 			path = car_Banner;
 			sourceTree = "<group>";
@@ -137,7 +168,7 @@
 		FF162DB70786037B1D9093A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CC88840164860804687B5A73 /* Pods_car_Banner.framework */,
+				DFF4EB00B37143E9E005D56D /* libPods-car_Banner.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -153,7 +184,6 @@
 				FE757A662359F63300B3CD89 /* Sources */,
 				FE757A672359F63300B3CD89 /* Frameworks */,
 				FE757A682359F63300B3CD89 /* Resources */,
-				EBE3F64D871557FEA1CDF7D1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -202,9 +232,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049F91EC2424F1D9006BBE71 /* Main.storyboard in Resources */,
 				FE757A7A2359F63400B3CD89 /* LaunchScreen.storyboard in Resources */,
 				FE757A772359F63400B3CD89 /* Assets.xcassets in Resources */,
-				FE757A752359F63400B3CD89 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,23 +263,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EBE3F64D871557FEA1CDF7D1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-car_Banner/Pods-car_Banner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-car_Banner/Pods-car_Banner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-car_Banner/Pods-car_Banner-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -257,17 +270,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04CABC682433B74D00B953E4 /* RegisterLabelViewController.swift in Sources */,
 				FE757A842359F8EF00B3CD89 /* RegisterUserViewController.swift in Sources */,
+				04A8715D24293AEF00F5F10C /* FirstScreenViewController.swift in Sources */,
 				FE757A822359F6CA00B3CD89 /* SignInViewController.swift in Sources */,
 				FE00EF102360DC1A00200E9D /* AccountViewController.swift in Sources */,
 				FE757A722359F63400B3CD89 /* ViewController.swift in Sources */,
 				FE93225C2360417100493967 /* MainTabBarViewController.swift in Sources */,
 				FE05724123634541009618A7 /* AddNewInfoViewController.swift in Sources */,
+				04A8715724291C5A00F5F10C /* Settings.swift in Sources */,
 				FE757A6E2359F63400B3CD89 /* AppDelegate.swift in Sources */,
 				FE4F5A0B235A0DAC0075CE55 /* OrderListPageViewController.swift in Sources */,
-				FE9B2DD32371DB2E00FAFE77 /* Global.swift in Sources */,
+				FE291CA423A660F700069536 /* displayMessage.swift in Sources */,
+				FE291CA123A65F6300069536 /* PhoneVerificationViewController.swift in Sources */,
 				FE757A702359F63400B3CD89 /* SceneDelegate.swift in Sources */,
 				FE235B6F23707A820076B6C9 /* OrderViewController.swift in Sources */,
+				0432DFC7243C57640014E858 /* LocationViewController.swift in Sources */,
 				FE1A7B232369EF4100231B1F /* OrderListCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,14 +293,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FE757A732359F63400B3CD89 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FE757A742359F63400B3CD89 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FE757A782359F63400B3CD89 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
