@@ -1,4 +1,4 @@
-framework module Pods_car_Banner {
+module Pods_car_Banner {
   umbrella header "Pods-car_Banner-umbrella.h"
 
   export *

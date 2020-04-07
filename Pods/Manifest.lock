@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (4.0.1)
+  - SkyFloatingLabelTextField (3.8.0)
   - SwiftKeychainWrapper (3.4.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0.0)
+  - SkyFloatingLabelTextField (~> 3.0)
   - SwiftKeychainWrapper (~> 3.4)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - SkyFloatingLabelTextField
     - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
 
-PODFILE CHECKSUM: a9c037bdce63f4d1d82a6159ec2349ba02298688
+PODFILE CHECKSUM: 0f18fd76bf76a8f8c08de5074d163c3056b515ba
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1
