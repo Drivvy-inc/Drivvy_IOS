@@ -2,11 +2,13 @@
 import UIKit
 import CoreLocation
 import UserNotifications
+import MapKit
 
 
 
-class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUserNotificationCenterDelegate {
-
+class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUserNotificationCenterDelegate, MKMapViewDelegate{
+    @IBOutlet weak var mapKitView: MKMapView!
+    
     let locationManager:CLLocationManager = CLLocationManager()
     
     
@@ -15,17 +17,22 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
         
         requestPermissionNotifications()
         
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        locationManager.delegate = self
+        mapKitView.delegate = self
+        mapKitView.showsPointsOfInterest = true
+        mapKitView.showsUserLocation = true
         
         locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+  
         
-        locationManager.startUpdatingLocation()
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+            locationManager.distanceFilter = 100
+        }
         
-        locationManager.distanceFilter = 100
-        
-        let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2DMake(43.61871, -116.214607), radius: 100, identifier: "Boise")
+        let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2DMake(50.4546600, 30.5238000), radius: 10000, identifier: "Kiev")
         
         locationManager.startMonitoring(for: geoFenceRegion)
         
@@ -39,6 +46,11 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
             print("\(index): \(currentLocation)")
             // "0: [locations]"
         }
+        let location = locations.first!
+        let coordinationRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
+        mapKitView.setRegion(coordinationRegion, animated: true)
+//        locationManager.stopUpdatingLocation()
+
     }
     
     
@@ -93,9 +105,9 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
                                 print("user denied")
                                 UserDefaults.standard.set(true, forKey: "PREF_PUSH_NOTIFICATIONS")
                             }))
-                            let viewController = UIApplication.shared.keyWindow!.rootViewController
+                            let LocationViewController = UIApplication.shared.keyWindow!.rootViewController
                             DispatchQueue.main.async {
-                                viewController?.present(alert, animated: true, completion: nil)
+                                LocationViewController?.present(alert, animated: true, completion: nil)
                             }
                         }
                     }
