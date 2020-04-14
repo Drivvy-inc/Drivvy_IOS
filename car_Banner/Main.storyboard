@@ -461,9 +461,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Ljr-8M-peo" firstAttribute="trailing" secondItem="g2Q-P6-UKu" secondAttribute="trailing" id="KJd-Ty-zcL"/>
-                            <constraint firstItem="g2Q-P6-UKu" firstAttribute="top" secondItem="ln0-Pg-YJQ" secondAttribute="topMargin" id="L61-Dr-icI"/>
                             <constraint firstItem="g2Q-P6-UKu" firstAttribute="leading" secondItem="Ljr-8M-peo" secondAttribute="leading" id="dIR-eO-jmB"/>
                             <constraint firstItem="g2Q-P6-UKu" firstAttribute="bottom" secondItem="Ljr-8M-peo" secondAttribute="bottom" id="fJ2-dB-f2K"/>
+                            <constraint firstItem="g2Q-P6-UKu" firstAttribute="top" secondItem="Ljr-8M-peo" secondAttribute="top" id="kiM-zH-8Fl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ljr-8M-peo"/>
                     </view>
