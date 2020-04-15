@@ -62,6 +62,7 @@ class OrderListPageViewController: UIViewController{
         let endpoint = Settings.shered.endpoint
 
         let myUrl                = URL(string: endpoint + "api/order/listOrders")
+
         var request              = URLRequest(url: myUrl!)
         request.httpMethod       = "GET"
         request.addValue("application/json", forHTTPHeaderField: "content-type")
@@ -124,6 +125,7 @@ class OrderListPageViewController: UIViewController{
         let endpoint = Settings.shered.endpoint
 
         let url = URL(string: endpoint + "api/checkStatus")
+
         
         var request              = URLRequest(url: url!)
         request.httpMethod       = "POST"

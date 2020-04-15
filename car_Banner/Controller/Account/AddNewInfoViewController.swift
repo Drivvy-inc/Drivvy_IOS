@@ -36,6 +36,7 @@ class AddNewInfoViewController: UIViewController {
         let endpoint = Settings.shered.endpoint
 
         let myUrl = URL(string: endpoint + "api/account/addInfo")
+
         
         var request              = URLRequest(url: myUrl!)
         request.httpMethod       = "PUT"

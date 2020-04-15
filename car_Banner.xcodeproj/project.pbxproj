@@ -112,6 +112,7 @@
 				FE757A832359F8EF00B3CD89 /* RegisterUserViewController.swift */,
 				FE291CA023A65F6300069536 /* PhoneVerificationViewController.swift */,
 				04CABC672433B74D00B953E4 /* RegisterLabelViewController.swift */,
+
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -120,11 +121,13 @@
 			isa = PBXGroup;
 			children = (
 				0417A7C6243B9F0D00B5A1D6 /* Location */,
+
 				FE291CA223A65F7C00069536 /* Register */,
 				FE00EF0E2360DBE700200E9D /* Orders */,
 				FE00EF0D2360DBDD00200E9D /* Account */,
 				FE757A812359F6CA00B3CD89 /* SignInViewController.swift */,
 				04A8715C24293AEF00F5F10C /* FirstScreenViewController.swift */,
+
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				FE757A7B2359F63400B3CD89 /* Info.plist */,
 				FE291CA323A660F700069536 /* displayMessage.swift */,
 				04A8715624291C5A00F5F10C /* Settings.swift */,
+
 			);
 			path = car_Banner;
 			sourceTree = "<group>";
@@ -282,6 +286,9 @@
 				FE757A6E2359F63400B3CD89 /* AppDelegate.swift in Sources */,
 				FE4F5A0B235A0DAC0075CE55 /* OrderListPageViewController.swift in Sources */,
 				FE291CA423A660F700069536 /* displayMessage.swift in Sources */,
+
+				FE9B2DD32371DB2E00FAFE77 /* Global.swift in Sources */,
+
 				FE291CA123A65F6300069536 /* PhoneVerificationViewController.swift in Sources */,
 				FE757A702359F63400B3CD89 /* SceneDelegate.swift in Sources */,
 				FE235B6F23707A820076B6C9 /* OrderViewController.swift in Sources */,
