@@ -33,8 +33,10 @@ class AddNewInfoViewController: UIViewController {
         myActivityIndicator.hidesWhenStopped = false
         myActivityIndicator.startAnimating()
         view.addSubview(myActivityIndicator)
+        let endpoint = Settings.shered.endpoint
 
-        let myUrl = URL(string: "http://027af41b.ngrok.io/api/account/addInfo")
+        let myUrl = URL(string: endpoint + "api/account/addInfo")
+
         
         var request              = URLRequest(url: myUrl!)
         request.httpMethod       = "PUT"

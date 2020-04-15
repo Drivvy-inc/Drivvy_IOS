@@ -59,8 +59,10 @@ class OrderListPageViewController: UIViewController{
 
     func loadAllOrders(){
         let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
+        let endpoint = Settings.shered.endpoint
 
-        let myUrl                = URL(string: "http://027af41b.ngrok.io/api/order/listOrders")
+        let myUrl                = URL(string: endpoint + "api/order/listOrders")
+
         var request              = URLRequest(url: myUrl!)
         request.httpMethod       = "GET"
         request.addValue("application/json", forHTTPHeaderField: "content-type")
@@ -120,7 +122,10 @@ class OrderListPageViewController: UIViewController{
     // MARK: - checkStatus
     func checkStatus(){
         let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
-        let url = URL(string: "http://027af41b.ngrok.io/api/checkStatus")
+        let endpoint = Settings.shered.endpoint
+
+        let url = URL(string: endpoint + "api/checkStatus")
+
         
         var request              = URLRequest(url: url!)
         request.httpMethod       = "POST"
