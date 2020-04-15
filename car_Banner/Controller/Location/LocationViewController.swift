@@ -8,22 +8,42 @@ import MapKit
 
 class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUserNotificationCenterDelegate, MKMapViewDelegate{
     @IBOutlet weak var mapKitView: MKMapView!
+    @IBOutlet weak var startStopButton: UIButton!
+    @IBAction func userLocation(_ sender: Any) {
+        let location = MKUserLocation()
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        self.mapKitView.setRegion(region, animated: true)
+        mapKitView.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
+        
+    }
+    
+    @IBAction func startTrakingGPS(_ sender: UIButton) {
+        if sender.isSelected {
+            sender.isSelected = false
+        } else {
+            sender.isSelected = true
+        }
+    }
+    
     
     let locationManager:CLLocationManager = CLLocationManager()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Settings.shered.buttonsParametrs(obj: startStopButton, rad: 15)
         
         requestPermissionNotifications()
         
         mapKitView.delegate = self
         mapKitView.showsPointsOfInterest = true
         mapKitView.showsUserLocation = true
-        
+        mapKitView.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
+
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
-  
+        
         
         if CLLocationManager.locationServicesEnabled(){
             locationManager.delegate = self
@@ -35,20 +55,88 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
         let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2DMake(50.4546600, 30.5238000), radius: 10000, identifier: "Kiev")
         
         locationManager.startMonitoring(for: geoFenceRegion)
+        let sourceLocation = CLLocationCoordinate2D(latitude: 40.759011, longitude: -73.984472)
+        let destinationLocation = CLLocationCoordinate2D(latitude: 40.748441, longitude: -73.985564)
+        
+        // 3.
+        let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
+        
+        // 4.
+        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+        
+        // 5.
+        let sourceAnnotation = MKPointAnnotation()
+        sourceAnnotation.title = "Times Square"
+        
+        if let location = sourcePlacemark.location {
+          sourceAnnotation.coordinate = location.coordinate
+        }
+        
+        
+        let destinationAnnotation = MKPointAnnotation()
+        destinationAnnotation.title = "Empire State Building"
+        
+        if let location = destinationPlacemark.location {
+          destinationAnnotation.coordinate = location.coordinate
+        }
+        
+        // 6.
+        self.mapKitView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
+        
+        // 7.
+        let directionRequest = MKDirections.Request()
+        directionRequest.source = sourceMapItem
+        directionRequest.destination = destinationMapItem
+        directionRequest.transportType = .automobile
+        
+        // Calculate the direction
+        let directions = MKDirections(request: directionRequest)
+        
+        // 8.
+        directions.calculate {
+          (response, error) -> Void in
+          
+          guard let response = response else {
+            if let error = error {
+              print("Error: \(error)")
+            }
+            
+            return
+          }
+          
+          let route = response.routes[0]
+            self.mapKitView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
+          
+          let rect = route.polyline.boundingMapRect
+            self.mapKitView.setRegion(MKCoordinateRegion(rect), animated: true)
+        }
+
         
 //        locationManager.stopUpdatingLocation()
     }
+    func mapKitView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.red
+        renderer.lineWidth = 4.0
+    
+        return renderer
+    }
+    
 
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         for currentLocation in locations{
-            print("\(index): \(currentLocation)")
+        print("\(index): \(currentLocation)")
+            
             // "0: [locations]"
         }
-        let location = locations.first!
-        let coordinationRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
-        mapKitView.setRegion(coordinationRegion, animated: true)
+        
+//        let location = locations.first!
+//        let coordinationRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
+//        mapKitView.setRegion(coordinationRegion, animated: true)
 //        locationManager.stopUpdatingLocation()
 
     }
