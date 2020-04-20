@@ -453,14 +453,71 @@
                     <view key="view" contentMode="scaleToFill" id="ln0-Pg-YJQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="g2Q-P6-UKu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9p5-kg-rSX">
+                                <rect key="frame" x="305" y="548" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="RKD-cR-cbE"/>
+                                    <constraint firstAttribute="width" constant="50" id="qVH-Y3-JEH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="location" catalog="system">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large" weight="light"/>
+                                </state>
+                                <connections>
+                                    <action selector="userLocation:" destination="jSw-vA-5Nk" eventType="touchUpInside" id="nOd-3V-uPC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6E-U3-POO">
+                                <rect key="frame" x="20" y="558" width="80" height="30"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="50u-UQ-MAZ"/>
+                                    <constraint firstAttribute="height" constant="30" id="h3Q-8H-Xoo"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="disabled" title="Start"/>
+                                <state key="selected" title="Stop">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startTrakingGPS:" destination="jSw-vA-5Nk" eventType="touchUpInside" id="skl-B7-xMW"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ljr-8M-peo" firstAttribute="trailing" secondItem="g2Q-P6-UKu" secondAttribute="trailing" id="KJd-Ty-zcL"/>
+                            <constraint firstItem="u6E-U3-POO" firstAttribute="leading" secondItem="Ljr-8M-peo" secondAttribute="leading" constant="20" id="PmY-gw-BEB"/>
+                            <constraint firstItem="g2Q-P6-UKu" firstAttribute="leading" secondItem="Ljr-8M-peo" secondAttribute="leading" id="dIR-eO-jmB"/>
+                            <constraint firstItem="g2Q-P6-UKu" firstAttribute="bottom" secondItem="Ljr-8M-peo" secondAttribute="bottom" id="fJ2-dB-f2K"/>
+                            <constraint firstItem="g2Q-P6-UKu" firstAttribute="top" secondItem="Ljr-8M-peo" secondAttribute="top" id="kiM-zH-8Fl"/>
+                            <constraint firstItem="Ljr-8M-peo" firstAttribute="bottom" secondItem="9p5-kg-rSX" secondAttribute="bottom" constant="20" id="mfC-W8-vbM"/>
+                            <constraint firstItem="Ljr-8M-peo" firstAttribute="trailing" secondItem="9p5-kg-rSX" secondAttribute="trailing" constant="20" id="u8q-Q4-1RX"/>
+                            <constraint firstItem="Ljr-8M-peo" firstAttribute="bottom" secondItem="u6E-U3-POO" secondAttribute="bottom" constant="30" id="y2o-hE-ado"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Ljr-8M-peo"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tracker" image="mappin.and.ellipse" catalog="system" id="UyQ-xD-86B"/>
+                    <connections>
+                        <outlet property="mapKitView" destination="g2Q-P6-UKu" id="rF2-56-bdk"/>
+                        <outlet property="startStopButton" destination="u6E-U3-POO" id="fWJ-wX-4x8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8S-Tn-iGd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1255" y="994"/>
+            <point key="canvasLocation" x="1253.5999999999999" y="993.55322338830592"/>
         </scene>
         <!--Account-->
         <scene sceneID="Ns5-25-HIE">
@@ -703,6 +760,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="jSw-vA-5Nk" kind="relationship" relationship="viewControllers" destinationCreationSelector="0" id="pML-T7-wuT"/>
@@ -737,7 +796,9 @@
         <scene sceneID="Fxz-QN-mZr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kgw-13-vSe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Orders" image="dollarsign.circle" catalog="system" id="aCm-6Y-V5a"/>
+                    <tabBarItem key="tabBarItem" title="Orders" image="dollarsign.circle" catalog="system" id="aCm-6Y-V5a">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8Vo-oR-hHz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -850,17 +911,17 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="7" id="d0a-k5-uYF">
-                                <rect key="frame" x="117" y="308" width="231" height="24"/>
+                                <rect key="frame" x="117" y="308" width="192" height="24"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agree to our" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhe-eC-y3H">
-                                        <rect key="frame" x="0.0" y="0.0" width="106" height="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="67" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms &amp; Stuff" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dhx-Uk-Auo">
-                                        <rect key="frame" x="113" y="0.0" width="118" height="24"/>
+                                        <rect key="frame" x="74" y="0.0" width="118" height="24"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -936,6 +997,7 @@
         <image name="checkbox_no" width="64" height="64"/>
         <image name="checkbox_yes" width="64" height="64"/>
         <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
+        <image name="location" catalog="system" width="128" height="115"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="or" width="481" height="12"/>
         <image name="pencil" catalog="system" width="128" height="113"/>

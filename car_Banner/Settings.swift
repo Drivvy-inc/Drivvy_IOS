@@ -12,7 +12,7 @@ import UIKit
 class Settings{
     static let shered = Settings()
     
-    var endpoint = "http://localhost:8060/"
+    var endpoint = "http://localhost:8080/"
     
     func buttonsParametrs(obj: UIButton, rad: CGFloat) {
         

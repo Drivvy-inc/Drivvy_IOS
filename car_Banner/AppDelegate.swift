@@ -8,13 +8,18 @@
 
 import UIKit
 import SwiftKeychainWrapper
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var locationManager: CLLocationManager?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        locationManager = CLLocationManager()
+        locationManager?.requestWhenInUseAuthorization()
+        
         // Override point for customization after application launch.
         let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
         if accessToken != nil
