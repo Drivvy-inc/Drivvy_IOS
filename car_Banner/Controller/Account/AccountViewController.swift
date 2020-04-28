@@ -39,7 +39,7 @@ class AccountViewController: UIViewController {
         let userId: String?      = KeychainWrapper.standard.string(forKey: "userId")
         let endpoint = Settings.shered.endpoint
         let myUrl                = URL(string: endpoint + "api/account/home")
-
+        print(accessToken)
         var request              = URLRequest(url: myUrl!)
         request.httpMethod       = "POST"
         request.addValue("application/json", forHTTPHeaderField: "content-type")

@@ -66,19 +66,19 @@ class AddNewInfoViewController: UIViewController {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
                     if let parseJSON = json{
-        //                      self.displayMessage(userMessage: "succ")OrderListPageViewController
+// self.displayMessage(userMessage:"succ")OrderListPageViewController
 
-                                DispatchQueue.main.async
-                                {
-                                    let id   = parseJSON["_id"] as? String
-                                    if id! == self.userId {
-                                    self.removeActivityyIndicator(activityIndicator: myActivityIndicator)
-                                    self.displayMessage(userMessage: "SUCCSESFUL! You Verify Account" )
-                                    }
-                                }
-                        } else {
-                            self.displayMessage(userMessage: "Could not successfully perfom this request. please try again tater")
+                        DispatchQueue.main.async
+                        {
+                            let id   = parseJSON["_id"] as? String
+                            if id! == self.userId {
+                            self.removeActivityyIndicator(activityIndicator: myActivityIndicator)
+                            self.displayMessage(userMessage: "SUCCSESFUL! You Verify Account" )
+                            }
                         }
+                    } else {
+                        self.displayMessage(userMessage: "Could not successfully perfom this request. please try again tater")
+                    }
                     
                 } catch {
                     self.removeActivityyIndicator(activityIndicator: myActivityIndicator)

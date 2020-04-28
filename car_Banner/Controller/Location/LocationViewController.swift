@@ -3,12 +3,22 @@ import UIKit
 import CoreLocation
 import UserNotifications
 import MapKit
-
-
+import SwiftKeychainWrapper
 
 class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUserNotificationCenterDelegate, MKMapViewDelegate{
+    // MARK: - Variable
+    let locationManager:CLLocationManager = CLLocationManager()
+    var oldLocation:CLLocation? = nil
+    var start = true
+    let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
+    var idOfHisoryRoute = ""
+    let endpoint = Settings.shered.endpoint
+    var saveCoordinate: Array<Any> = []
+    
     @IBOutlet weak var mapKitView: MKMapView!
     @IBOutlet weak var startStopButton: UIButton!
+   
+    // MARK: - user Location
     @IBAction func userLocation(_ sender: Any) {
         let location = MKUserLocation()
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
@@ -18,19 +28,75 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
         
     }
     
+    // MARK: - start Traking GPS
     @IBAction func startTrakingGPS(_ sender: UIButton) {
         if sender.isSelected {
-            sender.isSelected = false
+            let alertController = UIAlertController(
+                 title: "Alert",
+                 message: "Are you sure to finish riding?",
+                 preferredStyle: .alert)
+             
+             let OKAction = UIAlertAction(
+                 title: "Yes",
+                 style: .default) { (action:UIAlertAction!) in
+                    print ("Yes button prassed")
+                    sender.isSelected = false
+                    self.start = true
+                    self.oldLocation = nil
+                    for poll in self.mapKitView.overlays {
+                        self.mapKitView.removeOverlay(poll)
+                    }             }
+            let CancelAction = UIAlertAction(
+                  title: "Cancel",
+                  style: .cancel) { (action:UIAlertAction!) in
+                      print ("Cancel button prassed")
+                      DispatchQueue.main.async{
+                          self.dismiss(animated: true, completion: nil)
+                      }
+              }
+             
+            alertController.addAction(OKAction)
+            alertController.addAction(CancelAction)
+
+            self.present(alertController, animated: true, completion: nil)
         } else {
-            sender.isSelected = true
+            let alertController = UIAlertController(
+                 title: "Alert",
+                 message: "Are you sure to start riding?",
+                 preferredStyle: .alert)
+             
+             let OKAction = UIAlertAction(
+                 title: "Yes",
+                 style: .default) { (action:UIAlertAction!) in
+                    print ("Yes button prassed")
+                    sender.isSelected = true
+                    self.start = false
+                    if self.createRoute(httpMethod: "POST", router: "api/traking/createRoute", location: CLLocation()) {
+                        sender.isSelected = true
+                        self.start = false
+                    }
+             }
+            let CancelAction = UIAlertAction(
+                  title: "Cancel",
+                  style: .cancel) { (action:UIAlertAction!) in
+                      print ("Cancel button prassed")
+                      DispatchQueue.main.async{
+                          self.dismiss(animated: true, completion: nil)
+                      }
+              }
+             
+            alertController.addAction(OKAction)
+            alertController.addAction(CancelAction)
+
+            self.present(alertController, animated: true, completion: nil)
+
         }
+        
     }
     
-    
-    let locationManager:CLLocationManager = CLLocationManager()
-    
-    
+    // MARK: - view DidLoad
     override func viewDidLoad() {
+
         super.viewDidLoad()
         Settings.shered.buttonsParametrs(obj: startStopButton, rad: 15)
         
@@ -49,90 +115,58 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
-            locationManager.distanceFilter = 100
+            locationManager.distanceFilter = 10
         }
         
         let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2DMake(50.4546600, 30.5238000), radius: 10000, identifier: "Kiev")
         
         locationManager.startMonitoring(for: geoFenceRegion)
-        let sourceLocation = CLLocationCoordinate2D(latitude: 40.759011, longitude: -73.984472)
-        let destinationLocation = CLLocationCoordinate2D(latitude: 40.748441, longitude: -73.985564)
-        
-        // 3.
-        let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
-        let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
-        
-        // 4.
-        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
-        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
-        
-        // 5.
-        let sourceAnnotation = MKPointAnnotation()
-        sourceAnnotation.title = "Times Square"
-        
-        if let location = sourcePlacemark.location {
-          sourceAnnotation.coordinate = location.coordinate
-        }
-        
-        
-        let destinationAnnotation = MKPointAnnotation()
-        destinationAnnotation.title = "Empire State Building"
-        
-        if let location = destinationPlacemark.location {
-          destinationAnnotation.coordinate = location.coordinate
-        }
-        
-        // 6.
-        self.mapKitView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
-        
-        // 7.
-        let directionRequest = MKDirections.Request()
-        directionRequest.source = sourceMapItem
-        directionRequest.destination = destinationMapItem
-        directionRequest.transportType = .automobile
-        
-        // Calculate the direction
-        let directions = MKDirections(request: directionRequest)
-        
-        // 8.
-        directions.calculate {
-          (response, error) -> Void in
-          
-          guard let response = response else {
-            if let error = error {
-              print("Error: \(error)")
-            }
-            
-            return
-          }
-          
-          let route = response.routes[0]
-            self.mapKitView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
-          
-          let rect = route.polyline.boundingMapRect
-            self.mapKitView.setRegion(MKCoordinateRegion(rect), animated: true)
-        }
-
+      
         
 //        locationManager.stopUpdatingLocation()
     }
-    func mapKitView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
-        let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = UIColor.red
-        renderer.lineWidth = 4.0
     
-        return renderer
-    }
-    
-
-    
+    // MARK: - Location Manager
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         for currentLocation in locations{
-        print("\(index): \(currentLocation)")
-            
-            // "0: [locations]"
+            print("\(index): \(currentLocation)")
+                
         }
+        
+        if !self.start {
+                guard let newLocation = locations.last else {
+                return
+            }
+            for currentLocation in locations{
+                print("\(index): \(currentLocation)")
+                
+                let postString = [
+                "_id": self.idOfHisoryRoute,
+                "longitude": currentLocation.coordinate.longitude,
+                "latitude": currentLocation.coordinate.latitude,
+                "speed": currentLocation.speed] as [String : Any]
+                
+                self.saveCoordinate.append(postString)
+                print(saveCoordinate)
+            }
+            
+            guard let oldLocation = oldLocation as? CLLocation else {
+                // Save old location
+                self.oldLocation = newLocation
+                return
+            }
+
+            let oldCoordinates = oldLocation.coordinate
+            let newCoordinates = newLocation.coordinate
+            var area = [oldCoordinates, newCoordinates]
+            let polyline = MKPolyline(coordinates: &area, count: area.count)
+            mapKitView.addOverlay(polyline)
+
+            // Save old location
+            self.oldLocation = newLocation
+        }
+        
         
 //        let location = locations.first!
 //        let coordinationRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
@@ -141,7 +175,13 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
 
     }
     
-    
+    // MARK: - map View
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+               let pr = MKPolylineRenderer(overlay: overlay)
+               pr.strokeColor = UIColor.black
+               pr.lineWidth = 5
+           return pr
+       }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("Entered: \(region.identifier)")
@@ -153,8 +193,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
         postLocalNotifications(eventTitle: "Exited: \(region.identifier)")
     }
     
-    
-    
+    // MARK: - Permission Notifications
     func requestPermissionNotifications(){
         let application =  UIApplication.shared
         
@@ -209,8 +248,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
         }
     }
 
-    
-    
+    // MARK: - Local Notifications
     func postLocalNotifications(eventTitle:String){
         let center = UNUserNotificationCenter.current()
         
@@ -234,6 +272,79 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
         })
     }
     
+    // MARK: - createRoute
+    func createRoute(httpMethod: String, router: String, location: CLLocation) -> Bool {
+        let myUrl = URL(string: self.endpoint + router)
+        
+        var request              = URLRequest(url: myUrl!)
+        request.httpMethod       = httpMethod
+        request.addValue("application/json", forHTTPHeaderField: "content-type")
+        request.addValue("\(accessToken!)", forHTTPHeaderField: "auth-token")
+        print(location.coordinate)
+        
+        if httpMethod == "PUT" {
+            let postString = [
+                "_id": self.idOfHisoryRoute,
+                "longitude": location.coordinate.longitude,
+                "latitude": location.coordinate.latitude,
+                "speed": location.speed] as [String : Any]
+            do {
+                request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: [])
+            } catch let error {
+                print(error.localizedDescription)
+                displayMessage(userMessage: error.localizedDescription)
+            }
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            if error != nil{
+                self.displayMessage(userMessage: "Could not successfully perfom this request. please try again tater! ERROR: \(String(describing: error))")
+                print("error=\(String(describing: error))")
+                return
+            }
+            if httpMethod == "POST"{
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+                    if let parseJSON = json{
+                        DispatchQueue.main.async
+                        {
+                            self.idOfHisoryRoute = (parseJSON["_id"] as? String)!
+                            self.displayMessage(userMessage: "Good Lets Start  \(self.idOfHisoryRoute)")
+                        }
+                    } else {
+                        self.displayMessage(userMessage: "Could not successfully perfom this request. please try again tater")
+                    }
+                    
+                } catch {
+                    self.displayMessage(userMessage: "Could not successfully perfom this request. please try again tater! Error: \(error)")
+                    print(error)
+                }
+            }
+        }
+        task.resume()
+        return true
+    }
+    
+    // MARK: - Message
+    func displayMessage(userMessage: String) -> Void {
+         DispatchQueue.main.async{
+           let alertController = UIAlertController(
+                 title: "Alert",
+                 message: userMessage,
+                 preferredStyle: .alert)
+             
+           let OKAction = UIAlertAction(
+                 title: "OK",
+                 style: .default) { (action:UIAlertAction!) in
+                   print ("Ok button prassed")
+             }
+           alertController.addAction(OKAction)
+           self.present(alertController, animated: true, completion: nil)
+             
+         }
+     }
+    
+    // MARK: - Receive Memory Warning
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
