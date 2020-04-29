@@ -14,6 +14,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
     var idOfHisoryRoute = ""
     let endpoint = Settings.shered.endpoint
     var saveCoordinate: Array<Any> = []
+    var traveledDistance: Double = 0
     
     @IBOutlet weak var mapKitView: MKMapView!
     @IBOutlet weak var startStopButton: UIButton!
@@ -40,12 +41,15 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
                  title: "Yes",
                  style: .default) { (action:UIAlertAction!) in
                     print ("Yes button prassed")
-                    sender.isSelected = false
-                    self.start = true
-                    self.oldLocation = nil
-                    for poll in self.mapKitView.overlays {
-                        self.mapKitView.removeOverlay(poll)
-                    }             }
+                    if self.createRoute(httpMethod: "PUT", router: "api/traking/addGPS", location: self.saveCoordinate) {
+                        sender.isSelected = false
+                        self.start = true
+                        self.oldLocation = nil
+                        for poll in self.mapKitView.overlays {
+                            self.mapKitView.removeOverlay(poll)
+                        }
+                    }
+                }
             let CancelAction = UIAlertAction(
                   title: "Cancel",
                   style: .cancel) { (action:UIAlertAction!) in
@@ -71,7 +75,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
                     print ("Yes button prassed")
                     sender.isSelected = true
                     self.start = false
-                    if self.createRoute(httpMethod: "POST", router: "api/traking/createRoute", location: CLLocation()) {
+                    if self.createRoute(httpMethod: "POST", router: "api/traking/createRoute", location: self.saveCoordinate) {
                         sender.isSelected = true
                         self.start = false
                     }
@@ -109,6 +113,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
 
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
+        locationManager.allowsBackgroundLocationUpdates = true
         
         
         if CLLocationManager.locationServicesEnabled(){
@@ -135,20 +140,18 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
         }
         
         if !self.start {
-                guard let newLocation = locations.last else {
+            guard let newLocation = locations.last else {
                 return
             }
             for currentLocation in locations{
-                print("\(index): \(currentLocation)")
                 
                 let postString = [
-                "_id": self.idOfHisoryRoute,
                 "longitude": currentLocation.coordinate.longitude,
                 "latitude": currentLocation.coordinate.latitude,
+                "distanceInThisLocation": traveledDistance,
                 "speed": currentLocation.speed] as [String : Any]
-                
                 self.saveCoordinate.append(postString)
-                print(saveCoordinate)
+//                print(saveCoordinate)
             }
             
             guard let oldLocation = oldLocation as? CLLocation else {
@@ -157,6 +160,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
                 return
             }
 
+            traveledDistance += oldLocation.distance(from: newLocation)
             let oldCoordinates = oldLocation.coordinate
             let newCoordinates = newLocation.coordinate
             var area = [oldCoordinates, newCoordinates]
@@ -166,22 +170,11 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
             // Save old location
             self.oldLocation = newLocation
         }
-        
-        
 //        let location = locations.first!
 //        let coordinationRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
 //        mapKitView.setRegion(coordinationRegion, animated: true)
 //        locationManager.stopUpdatingLocation()
-
     }
-    
-    // MARK: - map View
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-               let pr = MKPolylineRenderer(overlay: overlay)
-               pr.strokeColor = UIColor.black
-               pr.lineWidth = 5
-           return pr
-       }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("Entered: \(region.identifier)")
@@ -192,6 +185,14 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
         print("Exited: \(region.identifier)")
         postLocalNotifications(eventTitle: "Exited: \(region.identifier)")
     }
+    
+    // MARK: - map View
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+               let pr = MKPolylineRenderer(overlay: overlay)
+               pr.strokeColor = UIColor.black
+               pr.lineWidth = 5
+           return pr
+       }
     
     // MARK: - Permission Notifications
     func requestPermissionNotifications(){
@@ -273,23 +274,25 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
     }
     
     // MARK: - createRoute
-    func createRoute(httpMethod: String, router: String, location: CLLocation) -> Bool {
+    func createRoute(httpMethod: String, router: String, location: Array<Any>) -> Bool {
         let myUrl = URL(string: self.endpoint + router)
         
         var request              = URLRequest(url: myUrl!)
         request.httpMethod       = httpMethod
         request.addValue("application/json", forHTTPHeaderField: "content-type")
         request.addValue("\(accessToken!)", forHTTPHeaderField: "auth-token")
-        print(location.coordinate)
         
         if httpMethod == "PUT" {
-            let postString = [
+            let dataSave = [
                 "_id": self.idOfHisoryRoute,
-                "longitude": location.coordinate.longitude,
-                "latitude": location.coordinate.latitude,
-                "speed": location.speed] as [String : Any]
+                "distance": traveledDistance,
+                "coordinate": location
+                ] as [String : Any]
+            
             do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: [])
+                request.httpBody = try JSONSerialization.data(withJSONObject: dataSave, options: [])
+                self.displayMessage(userMessage: "Perfect, your disctance is:  \(traveledDistance)")
+                return true
             } catch let error {
                 print(error.localizedDescription)
                 displayMessage(userMessage: error.localizedDescription)
@@ -310,6 +313,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
                         {
                             self.idOfHisoryRoute = (parseJSON["_id"] as? String)!
                             self.displayMessage(userMessage: "Good Lets Start  \(self.idOfHisoryRoute)")
+                            return; true
                         }
                     } else {
                         self.displayMessage(userMessage: "Could not successfully perfom this request. please try again tater")
@@ -322,7 +326,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
             }
         }
         task.resume()
-        return true
+        return false
     }
     
     // MARK: - Message

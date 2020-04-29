@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0432DFC7243C57640014E858 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432DFC6243C57640014E858 /* LocationViewController.swift */; };
+		04687B9724598AF8005C7ED8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04687B9624598AF8005C7ED8 /* MapKit.framework */; };
 		049F91EC2424F1D9006BBE71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F91EB2424F1D9006BBE71 /* Main.storyboard */; };
 		04A8715724291C5A00F5F10C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8715624291C5A00F5F10C /* Settings.swift */; };
 		04A8715D24293AEF00F5F10C /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8715C24293AEF00F5F10C /* FirstScreenViewController.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		03083E9B500F8623F5E798C4 /* Pods-car_Banner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-car_Banner.debug.xcconfig"; path = "Target Support Files/Pods-car_Banner/Pods-car_Banner.debug.xcconfig"; sourceTree = "<group>"; };
 		0432DFC6243C57640014E858 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		04687B9624598AF8005C7ED8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		049F91EB2424F1D9006BBE71 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		04A8715624291C5A00F5F10C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		04A8715C24293AEF00F5F10C /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04687B9724598AF8005C7ED8 /* MapKit.framework in Frameworks */,
 				3A0593FE534CCA20DDE7CC4B /* libPods-car_Banner.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,7 +115,6 @@
 				FE757A832359F8EF00B3CD89 /* RegisterUserViewController.swift */,
 				FE291CA023A65F6300069536 /* PhoneVerificationViewController.swift */,
 				04CABC672433B74D00B953E4 /* RegisterLabelViewController.swift */,
-
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -121,13 +123,11 @@
 			isa = PBXGroup;
 			children = (
 				0417A7C6243B9F0D00B5A1D6 /* Location */,
-
 				FE291CA223A65F7C00069536 /* Register */,
 				FE00EF0E2360DBE700200E9D /* Orders */,
 				FE00EF0D2360DBDD00200E9D /* Account */,
 				FE757A812359F6CA00B3CD89 /* SignInViewController.swift */,
 				04A8715C24293AEF00F5F10C /* FirstScreenViewController.swift */,
-
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -164,7 +164,6 @@
 				FE757A7B2359F63400B3CD89 /* Info.plist */,
 				FE291CA323A660F700069536 /* displayMessage.swift */,
 				04A8715624291C5A00F5F10C /* Settings.swift */,
-
 			);
 			path = car_Banner;
 			sourceTree = "<group>";
@@ -172,6 +171,7 @@
 		FF162DB70786037B1D9093A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04687B9624598AF8005C7ED8 /* MapKit.framework */,
 				DFF4EB00B37143E9E005D56D /* libPods-car_Banner.a */,
 			);
 			name = Frameworks;
@@ -286,9 +286,6 @@
 				FE757A6E2359F63400B3CD89 /* AppDelegate.swift in Sources */,
 				FE4F5A0B235A0DAC0075CE55 /* OrderListPageViewController.swift in Sources */,
 				FE291CA423A660F700069536 /* displayMessage.swift in Sources */,
-
-				FE9B2DD32371DB2E00FAFE77 /* Global.swift in Sources */,
-
 				FE291CA123A65F6300069536 /* PhoneVerificationViewController.swift in Sources */,
 				FE757A702359F63400B3CD89 /* SceneDelegate.swift in Sources */,
 				FE235B6F23707A820076B6C9 /* OrderViewController.swift in Sources */,

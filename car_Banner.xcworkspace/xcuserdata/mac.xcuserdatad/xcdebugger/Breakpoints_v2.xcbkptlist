@@ -318,58 +318,10 @@
             filePath = "car_Banner/Controller/Location/LocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CAF9E5B4-C641-4CF2-8431-AAF07F2175D4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "311"
-            endingLineNumber = "311"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  uuid = "CAF9E5B4-C641-4CF2-8431-AAF07F2175D4 - 4f78d99f2f751c95"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in car_Banner.LocationViewController.createRoute(httpMethod: Swift.String, router: Swift.String, location: __C.CLLocation) -&gt; Swift.Bool"
-                  moduleName = "car_Banner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "301"
-                  endingLineNumber = "301"
-                  offsetFromSymbolStart = "47">
-               </Location>
-               <Location
-                  uuid = "CAF9E5B4-C641-4CF2-8431-AAF07F2175D4 - 4f78d99f2f751c95"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in car_Banner.LocationViewController.createRoute(httpMethod: Swift.String, router: Swift.String, location: __C.CLLocation) -&gt; Swift.Bool"
-                  moduleName = "car_Banner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "301"
-                  endingLineNumber = "301"
-                  offsetFromSymbolStart = "502">
-               </Location>
-            </Locations>
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -382,10 +334,10 @@
             filePath = "car_Banner/Controller/Location/LocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "308"
+            endingLineNumber = "308"
+            landmarkName = "createRoute(httpMethod:router:location:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -398,10 +350,10 @@
             filePath = "car_Banner/Controller/Location/LocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "createRoute(httpMethod:router:location:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -416,24 +368,24 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "285"
             endingLineNumber = "285"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "createRoute(httpMethod:router:location:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7F6F8EA2-8443-4074-8334-37C38C428680"
+            uuid = "A935394D-4AE6-49BE-9835-F4E8B7FB9A55"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "car_Banner/Controller/Location/LocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "195"
+            endingLineNumber = "195"
+            landmarkName = "mapView(_:rendererFor:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

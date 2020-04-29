@@ -16,6 +16,7 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var useCarLabel: UILabel!
     @IBOutlet weak var userKmLabel: UILabel!
     @IBOutlet weak var userBalanceLabel: UILabel!
+    @IBOutlet weak var totalDistance: UILabel!
     
     
     override func viewDidLoad() {
@@ -75,6 +76,7 @@ class AccountViewController: UIViewController {
                                 let email = parseJSON["email"] as? String
                                 let km    = parseJSON["km"] as? String
                                 let car   = parseJSON["car"] as? String
+                                let distance   = parseJSON["totalDistance"] as? String
                                 if name?.isEmpty != nil{
                                     self.userNameLabel.text   = name!
                                     self.userNumberLabel.text = phone!
@@ -83,10 +85,12 @@ class AccountViewController: UIViewController {
                                         self.useCarLabel.text      = car!
                                         self.userKmLabel.text      = km!
                                         self.userBalanceLabel.text = "0"
+                                         self.totalDistance.text = distance!
                                     } else {
                                         self.useCarLabel.isHidden      = true
                                         self.userKmLabel.isHidden      = true
                                         self.userBalanceLabel.isHidden = true
+                                        self.totalDistance.isHidden = true
                                     }
                                 }
                             }
