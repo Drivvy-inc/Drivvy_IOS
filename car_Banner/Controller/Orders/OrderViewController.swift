@@ -104,11 +104,12 @@ class OrderViewController: UIViewController {
 
     func confirmOrder(companyName: String, companyId: Any){
         let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
+        let endpoint = Settings.shered.endpoint
 
-        let myUrl = URL(string: "http://30e51ff1.ngrok.io/api/order/confirmOrder")
+        let myUrl = URL(string: endpoint + "api/order/confirmOrder")
 
         var request              = URLRequest(url: myUrl!)
-        request.httpMethod       = "PUT"
+        request.httpMethod       = "POST"
         request.addValue("application/json", forHTTPHeaderField: "content-type")
         request.addValue("\(accessToken!)", forHTTPHeaderField: "auth-token")
         
@@ -139,7 +140,7 @@ class OrderViewController: UIViewController {
                             {
                                 let status        = parseJSON["status"] as? String
                                 let companyName   = parseJSON["companyName"] as? String
-                                print(status!, companyName!)
+                                print(status, companyName)
                             }
                         } else {
                             self.displayMessageAlart(userMessage: "Could not successfully perfom this request. please try again tater")

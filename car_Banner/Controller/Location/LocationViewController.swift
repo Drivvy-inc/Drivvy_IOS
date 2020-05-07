@@ -1,9 +1,10 @@
-
 import UIKit
 import CoreLocation
 import UserNotifications
 import MapKit
 import SwiftKeychainWrapper
+import Foundation
+import SystemConfiguration
 
 class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUserNotificationCenterDelegate, MKMapViewDelegate{
     // MARK: - Variable
@@ -26,7 +27,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 1000, longitudinalMeters: 1000)
         self.mapKitView.setRegion(region, animated: true)
         mapKitView.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
-        
     }
     
     // MARK: - start Traking GPS
@@ -41,7 +41,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
                  title: "Yes",
                  style: .default) { (action:UIAlertAction!) in
                     print ("Yes button prassed")
-                    if self.createRoute(httpMethod: "PUT", router: "api/traking/addGPS", location: self.saveCoordinate) {
+                    if self.createRoute(httpMethod: "POST", router: "api/traking/createRoute", location: self.saveCoordinate) {
                         sender.isSelected = false
                         self.start = true
                         self.oldLocation = nil
@@ -64,36 +64,40 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
 
             self.present(alertController, animated: true, completion: nil)
         } else {
-            let alertController = UIAlertController(
-                 title: "Alert",
-                 message: "Are you sure to start riding?",
-                 preferredStyle: .alert)
-             
-             let OKAction = UIAlertAction(
-                 title: "Yes",
-                 style: .default) { (action:UIAlertAction!) in
-                    print ("Yes button prassed")
-                    sender.isSelected = true
-                    self.start = false
-                    if self.createRoute(httpMethod: "POST", router: "api/traking/createRoute", location: self.saveCoordinate) {
-                        sender.isSelected = true
-                        self.start = false
-                    }
-             }
-            let CancelAction = UIAlertAction(
-                  title: "Cancel",
-                  style: .cancel) { (action:UIAlertAction!) in
-                      print ("Cancel button prassed")
-                      DispatchQueue.main.async{
-                          self.dismiss(animated: true, completion: nil)
-                      }
-              }
-             
-            alertController.addAction(OKAction)
-            alertController.addAction(CancelAction)
+            if Reachability.isConnectedToNetwork(){
+                self.displayMessage(userMessage: "Internet Connection Available!")
+                print("Internet Connection Available!")
+                let alertController = UIAlertController(
+                   title: "Alert",
+                   message: "Are you sure to start riding?",
+                   preferredStyle: .alert)
 
-            self.present(alertController, animated: true, completion: nil)
+                let OKAction = UIAlertAction(
+                   title: "Yes",
+                   style: .default) { (action:UIAlertAction!) in
+                      print ("Yes button prassed")
+                      sender.isSelected = true
+                      self.start = false
+                      sender.isSelected = true
+                      self.start = false
+                }
+                let CancelAction = UIAlertAction(
+                    title: "Cancel",
+                    style: .cancel) { (action:UIAlertAction!) in
+                        print ("Cancel button prassed")
+                        DispatchQueue.main.async{
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                }
 
+                alertController.addAction(OKAction)
+                alertController.addAction(CancelAction)
+
+                self.present(alertController, animated: true, completion: nil)
+            }else{
+                self.displayMessage(userMessage: "Internet Connection not Available!")
+                print("Internet Connection not Available!")
+            }
         }
         
     }
@@ -275,6 +279,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
     
     // MARK: - createRoute
     func createRoute(httpMethod: String, router: String, location: Array<Any>) -> Bool {
+        var check = true
         let myUrl = URL(string: self.endpoint + router)
         
         var request              = URLRequest(url: myUrl!)
@@ -282,22 +287,21 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
         request.addValue("application/json", forHTTPHeaderField: "content-type")
         request.addValue("\(accessToken!)", forHTTPHeaderField: "auth-token")
         
-        if httpMethod == "PUT" {
             let dataSave = [
-                "_id": self.idOfHisoryRoute,
                 "distance": traveledDistance,
                 "coordinate": location
                 ] as [String : Any]
             
             do {
                 request.httpBody = try JSONSerialization.data(withJSONObject: dataSave, options: [])
-                self.displayMessage(userMessage: "Perfect, your disctance is:  \(traveledDistance)")
-                return true
+//                self.displayMessage(userMessage: "Perfect, your disctance is:  \(traveledDistance)")
+//                return true
             } catch let error {
                 print(error.localizedDescription)
                 displayMessage(userMessage: error.localizedDescription)
+                check = false
             }
-        }
+        
         
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             if error != nil{
@@ -305,28 +309,16 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
                 print("error=\(String(describing: error))")
                 return
             }
-            if httpMethod == "POST"{
                 do {
                     let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-                    if let parseJSON = json{
-                        DispatchQueue.main.async
-                        {
-                            self.idOfHisoryRoute = (parseJSON["_id"] as? String)!
-                            self.displayMessage(userMessage: "Good Lets Start  \(self.idOfHisoryRoute)")
-                            return; true
-                        }
-                    } else {
-                        self.displayMessage(userMessage: "Could not successfully perfom this request. please try again tater")
-                    }
-                    
                 } catch {
                     self.displayMessage(userMessage: "Could not successfully perfom this request. please try again tater! Error: \(error)")
                     print(error)
+                    check = false
                 }
-            }
         }
         task.resume()
-        return false
+        return check
     }
     
     // MARK: - Message

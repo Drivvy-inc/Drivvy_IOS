@@ -85,7 +85,7 @@ class AccountViewController: UIViewController {
                                         self.useCarLabel.text      = car!
                                         self.userKmLabel.text      = km!
                                         self.userBalanceLabel.text = "0"
-                                         self.totalDistance.text = distance!
+                                        self.totalDistance.text = distance
                                     } else {
                                         self.useCarLabel.isHidden      = true
                                         self.userKmLabel.isHidden      = true
