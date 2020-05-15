@@ -45,6 +45,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
                         sender.isSelected = false
                         self.start = true
                         self.oldLocation = nil
+                        self.saveCoordinate.removeAll()
+                        self.traveledDistance = 0
                         for poll in self.mapKitView.overlays {
                             self.mapKitView.removeOverlay(poll)
                         }

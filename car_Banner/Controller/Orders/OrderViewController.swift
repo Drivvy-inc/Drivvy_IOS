@@ -114,7 +114,6 @@ class OrderViewController: UIViewController {
         request.addValue("\(accessToken!)", forHTTPHeaderField: "auth-token")
         
         let postString = [
-            "status": "inProcess",
             "companyName": companyName,
             "companyId": companyId] as! [ String: String ]
         do {

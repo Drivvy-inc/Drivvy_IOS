@@ -10,6 +10,7 @@
 		0432DFC7243C57640014E858 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432DFC6243C57640014E858 /* LocationViewController.swift */; };
 		04687B9724598AF8005C7ED8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04687B9624598AF8005C7ED8 /* MapKit.framework */; };
 		0469C4E32462C6F2001445E5 /* TestInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469C4E22462C6F2001445E5 /* TestInternet.swift */; };
+		04703ECC246474CA00B24813 /* ListOfHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04703ECB246474CA00B24813 /* ListOfHistoryTableViewController.swift */; };
 		049F91EC2424F1D9006BBE71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F91EB2424F1D9006BBE71 /* Main.storyboard */; };
 		04A8715724291C5A00F5F10C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8715624291C5A00F5F10C /* Settings.swift */; };
 		04A8715D24293AEF00F5F10C /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8715C24293AEF00F5F10C /* FirstScreenViewController.swift */; };
@@ -37,6 +38,7 @@
 		0432DFC6243C57640014E858 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		04687B9624598AF8005C7ED8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0469C4E22462C6F2001445E5 /* TestInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInternet.swift; sourceTree = "<group>"; };
+		04703ECB246474CA00B24813 /* ListOfHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfHistoryTableViewController.swift; sourceTree = "<group>"; };
 		049F91EB2424F1D9006BBE71 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		04A8715624291C5A00F5F10C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		04A8715C24293AEF00F5F10C /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 			path = Location;
 			sourceTree = "<group>";
 		};
+		04703EC82464702700B24813 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				04703ECB246474CA00B24813 /* ListOfHistoryTableViewController.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		AE28241A62E41773A94B0716 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +134,7 @@
 		FE53CBC8235CCBF8006500FE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				04703EC82464702700B24813 /* History */,
 				0417A7C6243B9F0D00B5A1D6 /* Location */,
 				FE291CA223A65F7C00069536 /* Register */,
 				FE00EF0E2360DBE700200E9D /* Orders */,
@@ -295,6 +306,7 @@
 				FE235B6F23707A820076B6C9 /* OrderViewController.swift in Sources */,
 				0432DFC7243C57640014E858 /* LocationViewController.swift in Sources */,
 				FE1A7B232369EF4100231B1F /* OrderListCollectionViewCell.swift in Sources */,
+				04703ECC246474CA00B24813 /* ListOfHistoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
