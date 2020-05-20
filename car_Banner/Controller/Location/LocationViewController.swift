@@ -5,6 +5,7 @@ import MapKit
 import SwiftKeychainWrapper
 import Foundation
 import SystemConfiguration
+import Alamofire
 
 class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUserNotificationCenterDelegate, MKMapViewDelegate{
     // MARK: - Variable
@@ -16,6 +17,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
     let endpoint = Settings.shered.endpoint
     var saveCoordinate: Array<Any> = []
     var traveledDistance: Double = 0
+    var pictureView: UIImage!
+
     
     @IBOutlet weak var mapKitView: MKMapView!
     @IBOutlet weak var startStopButton: UIButton!
@@ -41,7 +44,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
                  title: "Yes",
                  style: .default) { (action:UIAlertAction!) in
                     print ("Yes button prassed")
-                    if self.createRoute(httpMethod: "POST", router: "api/traking/createRoute", location: self.saveCoordinate) {
+//                  if self.createRoute(httpMethod: "POST", router: "api/traking/createRoute", location: self.saveCoordinate) {
+                    if self.myImageUploadRequest(location: self.saveCoordinate){
                         sender.isSelected = false
                         self.start = true
                         self.oldLocation = nil
@@ -77,12 +81,45 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
                 let OKAction = UIAlertAction(
                    title: "Yes",
                    style: .default) { (action:UIAlertAction!) in
-                      print ("Yes button prassed")
-                      sender.isSelected = true
-                      self.start = false
-                      sender.isSelected = true
-                      self.start = false
+                    print ("Yes button prassed")
+                    sender.isSelected = true
+                    self.start = false
+                    sender.isSelected = true
+                    self.start = false
                 }
+                let TakePicture = UIAlertAction(
+                    title: "Take Picture",
+                    style: .default) { (action:UIAlertAction!) in
+                        print ("Take Picture")
+                        DispatchQueue.main.async{
+                            if(UIImagePickerController.isSourceTypeAvailable(.camera))
+                            {
+                                 let myPickerController = UIImagePickerController()
+                                 myPickerController.delegate = self
+                                 myPickerController.allowsEditing = true
+                                 myPickerController.sourceType = .camera
+                                 self.present(myPickerController, animated: true, completion: nil)
+                            } else {
+                                 let actionController: UIAlertController = UIAlertController(title: "Camera is not available",message: "", preferredStyle: .alert)
+                                 let cancelAction: UIAlertAction = UIAlertAction(title: "OK", style: .cancel) { action -> Void  in
+                                            //Just dismiss the action sheet
+                                 }
+                                 actionController.addAction(cancelAction)
+                                 self.present(actionController, animated: true, completion: nil)
+                            }
+                         
+                        }
+                }
+                
+                let OpenLibrary = UIAlertAction(
+                    title: "Open Library",
+                    style: .default) { (action:UIAlertAction!) in
+                        print ("Open Library")
+                            let imagePicker = UIImagePickerController() // 1
+                            imagePicker.delegate = self // 2
+                            self.present(imagePicker, animated: true, completion: nil) // 3
+                }
+                
                 let CancelAction = UIAlertAction(
                     title: "Cancel",
                     style: .cancel) { (action:UIAlertAction!) in
@@ -93,6 +130,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
                 }
 
                 alertController.addAction(OKAction)
+                alertController.addAction(TakePicture)
+                alertController.addAction(OpenLibrary)
                 alertController.addAction(CancelAction)
 
                 self.present(alertController, animated: true, completion: nil)
@@ -279,6 +318,99 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
         })
     }
     
+    // MARK: - myImageUploadRequest
+    func myImageUploadRequest(location: Array<Any>) -> Bool
+       {
+        var check = false
+        let myUrl = NSURL(string: "http://b6e31e15.ngrok.io/api/traking/createRoute");
+        //let myUrl = NSURL(string: "http://www.boredwear.com/utils/postImage.php");
+        
+        let request = NSMutableURLRequest(url:myUrl! as URL);
+        request.httpMethod = "POST";
+
+        let param = [
+           "distance": traveledDistance,
+           "coordinate": location,
+           ] as [String : Any]
+
+        let boundary = generateBoundaryString()
+
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        let imageData = pictureView.jpegData(compressionQuality: 1)
+
+
+        request.httpBody = createBodyWithParameters(parameters: param as? [String : String], filePathKey: "file", imageDataKey: imageData! as NSData, boundary: boundary) as Data
+
+
+        let myActivityIndicator = UIActivityIndicatorView( style: UIActivityIndicatorView.Style.medium )
+        myActivityIndicator.center = view.center
+        myActivityIndicator.hidesWhenStopped = false
+        myActivityIndicator.startAnimating()
+        view.addSubview(myActivityIndicator)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+           data, response, error in
+           
+           if error != nil {
+               print("error=\(error)")
+               return
+           }
+           
+           // You can print out response object
+           print("******* response = \(response)")
+           
+           // Print out reponse body
+        let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+           print("****** response data = \(responseString!)")
+           
+           do {
+            let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print(json)
+            self.removeActivityyIndicator(activityIndicator: myActivityIndicator)
+            check = true
+               
+           }catch
+           {
+               print(error)
+           }
+           
+        }
+
+        task.resume()
+        return check
+       }
+    
+    // MARK: - generateBoundaryString
+
+   func generateBoundaryString() -> String {
+    return "Boundary-\(NSUUID().uuidString)"
+   }
+    // MARK: - createBodyWithParameters
+
+    func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
+           let body = NSMutableData();
+           
+           if parameters != nil {
+               for (key, value) in parameters! {
+                body.appendString(string: "--\(boundary)\r\n")
+                body.appendString(string: "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+                body.appendString(string: "\(value)\r\n")
+               }
+           }
+          
+                   let filename = "user-profile.jpg"
+                   let mimetype = "image/jpg"
+                   
+        body.appendString(string: "--\(boundary)\r\n")
+        body.appendString(string: "Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
+        body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
+        body.append(imageDataKey as Data)
+        body.appendString(string: "\r\n")
+        body.appendString(string: "--\(boundary)--\r\n")
+           
+           return body
+       }
+
+    
     // MARK: - createRoute
     func createRoute(httpMethod: String, router: String, location: Array<Any>) -> Bool {
         var check = true
@@ -287,11 +419,12 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
         var request              = URLRequest(url: myUrl!)
         request.httpMethod       = httpMethod
         request.addValue("application/json", forHTTPHeaderField: "content-type")
+        request.addValue("multipart/form-data", forHTTPHeaderField: "Accept")
         request.addValue("\(accessToken!)", forHTTPHeaderField: "auth-token")
-        
             let dataSave = [
                 "distance": traveledDistance,
-                "coordinate": location
+                "coordinate": location,
+                "photoOfStart": self.pictureView,
                 ] as [String : Any]
             
             do {
@@ -313,6 +446,73 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
             }
                 do {
                     let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+
+//                    let url = URL(string: "http://04720ee6.ngrok.io/api/user")
+//
+//                    // generate boundary string using a unique per-app string
+//                    let boundary = UUID().uuidString
+//
+//                    let session = URLSession.shared
+//
+//                    var paramName = "StartImg"
+//                    var fileName = "StartImg.png"
+//                    // Set the URLRequest to POST and to the specified URL
+//                    var urlRequest = URLRequest(url: url!)
+//                    urlRequest.httpMethod = "POST"
+//                    let imageData = self.pictureView!.pngData()
+//
+//                    // Set Content-Type Header to multipart/form-data, this is equivalent to submitting form data with file upload in a web browser
+//                    // And the boundary is also set here
+//                    urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+//
+//                    var data = Data()
+//
+//                    // Add the image data to the raw http request data
+//                    data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
+//                    data.append("Content-Disposition: form-data; name=\"\(paramName)\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
+//                    data.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
+//                    data.append(self.pictureView!.pngData()!)
+//
+//                    data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
+//
+//                    // Send a POST request to the URL, with the data we created earlier
+//                    session.uploadTask(with: urlRequest, from: data, completionHandler: { responseData, response, error in
+//                        if error == nil {
+//                            let jsonData = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments)
+//                            if let json = jsonData as? [String: Any] {
+//                                print(json)
+//                            }
+//                        }
+//                    }).resume()
+                    
+//                    let image = UIImage(named: "Car_Logo")!
+//                    let data = self.pictureView.pngData()
+//
+//                    let httpHeaders = ["auth-token": "\(self.accessToken!)"]
+//
+//                    upload(multipartFormData: { multipartFormData in
+//                        multipartFormData.append(data!, withName: "imagefile", fileName: "image.jpg", mimeType: "image/jpeg")
+//                    }, to: "http://04720ee6.ngrok.io/api/user", headers: httpHeaders, encodingCompletion: { encodingResult in
+//                        switch encodingResult {
+//                        case .success(let uploadRequest, let streamingFromDisk, let streamFileURL):
+//                            print(uploadRequest)
+//                            print(streamingFromDisk)
+//                            print(streamFileURL ?? "streamFileURL is NIL")
+//
+//                            uploadRequest.validate().responseJSON() { responseJSON in
+//                                switch responseJSON.result {
+//                                case .success(let value):
+//                                    print(value)
+//
+//                                case .failure(let error):
+//                                    print(error)
+//                                }
+//                            }
+//
+//                        case .failure(let error):
+//                            print(error)
+//                        }
+//                    })
                 } catch {
                     self.displayMessage(userMessage: "Could not successfully perfom this request. please try again tater! Error: \(error)")
                     print(error)
@@ -342,9 +542,43 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
          }
      }
     
+    func removeActivityyIndicator(activityIndicator: UIActivityIndicatorView){
+       DispatchQueue.main.async{
+           activityIndicator.stopAnimating()
+           activityIndicator.removeFromSuperview()
+       }
+   }
+    
     // MARK: - Receive Memory Warning
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+extension LocationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    // UIImagePickerControllerDelegate
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let imageFromPC = info[UIImagePickerController.InfoKey.originalImage] as! UIImage // 1
+        pictureView = imageFromPC //
+
+        self.dismiss(animated: true, completion: nil) // 3
+    }
+    
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    
+}
+
+extension NSMutableData {
+   
+    func appendString(string: String) {
+        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        append(data!)
     }
 }

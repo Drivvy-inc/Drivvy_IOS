@@ -311,207 +311,107 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8747CB07-D583-4218-BC3E-7E466E5AFD96"
+            uuid = "75B0FCC8-2B37-41BE-A64C-9DFF39BAF9E4"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "car_Banner/Controller/Location/LocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C8FB9A10-1913-437C-97B6-B3680D22BB3A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
-            landmarkName = "createRoute(httpMethod:router:location:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "84352A30-B7B5-4060-8704-63E535C034B7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
-            landmarkName = "postLocalNotifications(eventTitle:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "490F18ED-2816-4921-B6AD-6099398FE9CD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
-            landmarkName = "postLocalNotifications(eventTitle:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A935394D-4AE6-49BE-9835-F4E8B7FB9A55"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "79336676-AAD6-45FB-BDD2-A2AC86A16F0A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0631FD31-17A0-4671-998F-B7E8FA9B98C9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3AAF63D6-A254-45AE-9B6D-5C79CA10E87B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
-            landmarkName = "createRoute(httpMethod:router:location:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9DA3E113-858E-4F6F-BB4A-565799B4761A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
-            landmarkName = "requestPermissionNotifications()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B00B0D11-D2C7-4554-9604-B419E5643423"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
-            landmarkName = "createRoute(httpMethod:router:location:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "47C49AC7-DA02-4B6A-A806-AD5AC6165726"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "308"
-            endingLineNumber = "308"
-            landmarkName = "createRoute(httpMethod:router:location:)"
-            landmarkType = "7">
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "LocationViewController"
+            landmarkType = "3">
             <Locations>
                <Location
-                  uuid = "47C49AC7-DA02-4B6A-A806-AD5AC6165726 - eeb9a83ae2a322d0"
+                  uuid = "75B0FCC8-2B37-41BE-A64C-9DFF39BAF9E4 - 5f9ba200c2474101"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "car_Banner.LocationViewController.createRoute(httpMethod: Swift.String, router: Swift.String, location: Swift.Array&lt;Any&gt;) -&gt; Swift.Bool"
+                  symbolName = "car_Banner.LocationViewController.pictureView.getter : Swift.Optional&lt;__C.UIImage&gt;"
                   moduleName = "car_Banner"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "302"
-                  endingLineNumber = "302"
-                  offsetFromSymbolStart = "3424">
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "140">
                </Location>
                <Location
-                  uuid = "47C49AC7-DA02-4B6A-A806-AD5AC6165726 - 6742ed559838befb"
+                  uuid = "75B0FCC8-2B37-41BE-A64C-9DFF39BAF9E4 - f81d1b495a712515"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in car_Banner.LocationViewController.createRoute(httpMethod: Swift.String, router: Swift.String, location: Swift.Array&lt;Any&gt;) -&gt; Swift.Bool"
+                  symbolName = "car_Banner.LocationViewController.pictureView.setter : Swift.Optional&lt;__C.UIImage&gt;"
                   moduleName = "car_Banner"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "303"
-                  endingLineNumber = "303"
-                  offsetFromSymbolStart = "355">
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "75B0FCC8-2B37-41BE-A64C-9DFF39BAF9E4 - 52b817c192112804"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "car_Banner.LocationViewController.pictureView.modify : Swift.Optional&lt;__C.UIImage&gt;"
+                  moduleName = "car_Banner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "75B0FCC8-2B37-41BE-A64C-9DFF39BAF9E4 - 8843f58c2746cbcd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "car_Banner.LocationViewController.pictureView.modify : Swift.Optional&lt;__C.UIImage&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "car_Banner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "75B0FCC8-2B37-41BE-A64C-9DFF39BAF9E4 - ff8761e1a4621e3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "car_Banner.LocationViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; car_Banner.LocationViewController"
+                  moduleName = "car_Banner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "1164">
+               </Location>
+               <Location
+                  uuid = "75B0FCC8-2B37-41BE-A64C-9DFF39BAF9E4 - 6963cf647c463cf8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "car_Banner.LocationViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;car_Banner.LocationViewController&gt;"
+                  moduleName = "car_Banner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "1112">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -519,15 +419,139 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "488CE1C4-2612-42E8-927D-26E4D5D9A140"
+            uuid = "7EB5C226-7AF2-4424-88DB-85071A20FE99"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "car_Banner/Controller/Location/LocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
+            startingLineNumber = "563"
+            endingLineNumber = "563"
+            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "27CD6FD9-2AEE-4F00-B529-D32C231CA323"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "LocationViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "27CD6FD9-2AEE-4F00-B529-D32C231CA323 - 79238de3988a1e1d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "car_Banner.LocationViewController.pictureView.getter : __C.UIImageView"
+                  moduleName = "car_Banner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  uuid = "27CD6FD9-2AEE-4F00-B529-D32C231CA323 - e1bf53f281a87121"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "car_Banner.LocationViewController.pictureView.setter : __C.UIImageView"
+                  moduleName = "car_Banner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "27CD6FD9-2AEE-4F00-B529-D32C231CA323 - 2aad93f982048450"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "car_Banner.LocationViewController.pictureView.modify : __C.UIImageView"
+                  moduleName = "car_Banner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "27CD6FD9-2AEE-4F00-B529-D32C231CA323 - 32d86be9c79114bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "car_Banner.LocationViewController.pictureView.modify : __C.UIImageView with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "car_Banner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "27CD6FD9-2AEE-4F00-B529-D32C231CA323 - ff8761e1a4621e3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "car_Banner.LocationViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; car_Banner.LocationViewController"
+                  moduleName = "car_Banner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "1160">
+               </Location>
+               <Location
+                  uuid = "27CD6FD9-2AEE-4F00-B529-D32C231CA323 - 6963cf647c463cf8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "car_Banner.LocationViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;car_Banner.LocationViewController&gt;"
+                  moduleName = "car_Banner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "1108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "235E094C-038A-421D-A6BF-E44DF4632AC2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "491"
+            endingLineNumber = "491"
             landmarkName = "createRoute(httpMethod:router:location:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -535,112 +559,156 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9EC1F8BF-346D-4A57-B49C-E0CF87A55E86"
+            uuid = "FB22DD5E-769F-4725-B6A7-BCEC8E3E029D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "car_Banner/Controller/Location/LocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
-            landmarkName = "createRoute(httpMethod:router:location:)"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "LocationViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "FB22DD5E-769F-4725-B6A7-BCEC8E3E029D - a9ee570478d332d5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "car_Banner.LocationViewController.traveledDistance.getter : Swift.Double"
+                  moduleName = "car_Banner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "FB22DD5E-769F-4725-B6A7-BCEC8E3E029D - be674fb7df0bced9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "car_Banner.LocationViewController.traveledDistance.setter : Swift.Double"
+                  moduleName = "car_Banner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "FB22DD5E-769F-4725-B6A7-BCEC8E3E029D - fc809c6f663fe3c8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "car_Banner.LocationViewController.traveledDistance.modify : Swift.Double"
+                  moduleName = "car_Banner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "FB22DD5E-769F-4725-B6A7-BCEC8E3E029D - a196af67e72ba22a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "car_Banner.LocationViewController.traveledDistance.modify : Swift.Double with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "car_Banner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "FB22DD5E-769F-4725-B6A7-BCEC8E3E029D - ff8761e1a4621e3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "car_Banner.LocationViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; car_Banner.LocationViewController"
+                  moduleName = "car_Banner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "1088">
+               </Location>
+               <Location
+                  uuid = "FB22DD5E-769F-4725-B6A7-BCEC8E3E029D - 6963cf647c463cf8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "car_Banner.LocationViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;car_Banner.LocationViewController&gt;"
+                  moduleName = "car_Banner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Job%206/Drivvy/Drivvy_IOS/car_Banner/Controller/Location/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "1036">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F8704E2-8152-4B63-8BE0-4631992E9C20"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "366"
+            endingLineNumber = "366"
+            landmarkName = "myImageUploadRequest(location:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "748A9CAA-AC18-40FA-AA55-FA5C9CBD1715"
-            shouldBeEnabled = "No"
+            uuid = "6A2C1D4D-FCBC-40A9-9C39-400CB1B9FC92"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "car_Banner/Controller/Location/LocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
-            landmarkName = "createRoute(httpMethod:router:location:)"
+            startingLineNumber = "368"
+            endingLineNumber = "368"
+            landmarkName = "myImageUploadRequest(location:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "92EE3316-A1A0-4CBA-BC70-9576B074DF36"
-            shouldBeEnabled = "No"
+            uuid = "3AFD3A30-8A90-499F-8E98-F9A125DA4189"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "car_Banner/Controller/Location/LocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "startTrakingGPS(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A973ED1D-6640-45F3-AC6D-65CFCC6B8961"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "startTrakingGPS(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3A6C68B4-3659-4591-A703-4E7D179F0B58"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "323"
-            endingLineNumber = "323"
-            landmarkName = "createRoute(httpMethod:router:location:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B3228B8F-5946-4480-9B1A-1CF55FC7C900"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
-            landmarkName = "createRoute(httpMethod:router:location:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B4DE9F89-71F2-431E-B92E-CE402A8DAFD0"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "car_Banner/Controller/Location/LocationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "startTrakingGPS(_:)"
+            startingLineNumber = "369"
+            endingLineNumber = "369"
+            landmarkName = "myImageUploadRequest(location:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

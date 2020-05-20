@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rSb-HP-A0c">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -221,22 +221,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Uber" translatesAutoresizingMaskIntoConstraints="NO" id="q0S-j7-fbn">
-                                <rect key="frame" x="16" y="51" width="382" height="258"/>
+                                <rect key="frame" x="16" y="51" width="343" height="232"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="q0S-j7-fbn" secondAttribute="height" multiplier="37:25" id="gYM-X4-kWt"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9i-Pv-ggX">
-                                <rect key="frame" x="16" y="349" width="382" height="30"/>
+                                <rect key="frame" x="16" y="323" width="343" height="30"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Liz-xO-0QZ">
-                                <rect key="frame" x="0.0" y="555" width="414" height="92"/>
+                                <rect key="frame" x="0.0" y="563.5" width="375" height="83.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elp-rJ-Nvf">
-                                        <rect key="frame" x="230" y="20" width="164" height="52"/>
+                                        <rect key="frame" x="191" y="20" width="164" height="52"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="164" id="IfG-JE-sau"/>
                                             <constraint firstAttribute="height" constant="52" id="gBj-th-odd"/>
@@ -818,7 +818,7 @@
         <!--View Controller-->
         <scene sceneID="5fA-gs-BeU">
             <objects>
-                <viewController id="h2w-Vq-5ah" sceneMemberID="viewController">
+                <viewController id="h2w-Vq-5ah" customClass="ViewController" customModule="car_Banner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t2X-q0-TpO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -838,7 +838,23 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1p9-vD-JIc">
                                                 <rect key="frame" x="164.5" y="999" width="46" height="30"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="camButtonTapped:" destination="h2w-Vq-5ah" eventType="touchUpInside" id="P17-Di-xTC"/>
+                                                </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4iF-AL-tDn">
+                                                <rect key="frame" x="62" y="134" width="54" height="34"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="galButtonTapped:" destination="h2w-Vq-5ah" eventType="touchUpInside" id="L5j-PO-p76"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="drivvi" translatesAutoresizingMaskIntoConstraints="NO" id="wku-uf-ELJ">
+                                                <rect key="frame" x="67" y="300" width="240" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -874,6 +890,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="BI1-Fu-Uet"/>
                     <size key="freeformSize" width="375" height="1200"/>
+                    <connections>
+                        <outlet property="pictureView" destination="wku-uf-ELJ" id="ekr-Sq-Tdi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kq7-Ah-lfx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1196,6 +1215,7 @@
         <image name="checkbox_no" width="64" height="64"/>
         <image name="checkbox_yes" width="64" height="64"/>
         <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
+        <image name="drivvi" width="460" height="232"/>
         <image name="location" catalog="system" width="128" height="115"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="or" width="481" height="12"/>
