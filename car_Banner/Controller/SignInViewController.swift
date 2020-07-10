@@ -10,8 +10,8 @@ import UIKit
 import SwiftKeychainWrapper
 
 class SignInViewController: UIViewController, UITextFieldDelegate{
-    @IBOutlet weak var userNameTextField: UITextField!
-    @IBOutlet weak var userPasswordTextField: UITextField!
+    @IBOutlet weak var userNameTextField: ShakingTextField!
+    @IBOutlet weak var userPasswordTextField: ShakingTextField!
     @IBOutlet weak var signInButton: UIButton!
     
     @IBAction func cancelButtonClicked(_ sender: Any) {
@@ -29,8 +29,17 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
 
         super.viewDidLoad()
         
+        userNameTextField.delegate = self
+        userPasswordTextField.delegate = self
+        
         // Do any additional setup after loading the view.
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        userNameTextField.shake()
+        userPasswordTextField.shake()
+    }
+    
     @IBAction func signInButtonClicked(_ sender: Any) {
         print("signin Button")
 

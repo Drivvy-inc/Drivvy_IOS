@@ -306,7 +306,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UNUse
         
         
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            if error != nil{
+            if error != nil {
                 self.displayMessage(userMessage: "Could not successfully perfom this request. please try again tater! ERROR: \(String(describing: error))")
                 print("error=\(String(describing: error))")
                 return

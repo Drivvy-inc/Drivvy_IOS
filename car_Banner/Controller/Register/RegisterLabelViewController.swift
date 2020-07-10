@@ -19,6 +19,7 @@ class RegisterLabelViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         Settings.shered.buttonsParametrs(obj: registerDesignButton, rad: 20)
         self.passwordRegTextField.addBottomBorder()
         self.repPasswordRegTextField.addBottomBorder()

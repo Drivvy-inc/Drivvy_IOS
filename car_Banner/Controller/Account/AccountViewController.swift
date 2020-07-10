@@ -21,6 +21,7 @@ class AccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userNameLabel.sizeToFit()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: NSNotification.Name("Reload Account"), object: nil)
         loadMemberProfile()
     }

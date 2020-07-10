@@ -5,8 +5,8 @@
       "scale" : "1x"
     },
     {
+      "filename" : "iconfinder_menu_4092560.png",
       "idiom" : "universal",
-      "filename" : "or.png",
       "scale" : "2x"
     },
     {
@@ -15,7 +15,7 @@
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }

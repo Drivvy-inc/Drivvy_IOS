@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		0432DFC7243C57640014E858 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432DFC6243C57640014E858 /* LocationViewController.swift */; };
+		044E8DA924AF706C00C4311E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E8DA824AF706C00C4311E /* SettingsViewController.swift */; };
 		04687B9724598AF8005C7ED8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04687B9624598AF8005C7ED8 /* MapKit.framework */; };
 		0469C4E32462C6F2001445E5 /* TestInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469C4E22462C6F2001445E5 /* TestInternet.swift */; };
+		046E380824A651EC00912A7B /* ShakingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E380724A651EC00912A7B /* ShakingTextField.swift */; };
 		04703ECC246474CA00B24813 /* ListOfHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04703ECB246474CA00B24813 /* ListOfHistoryTableViewController.swift */; };
+		049452CE24A109DC0026B32A /* ACCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049452CD24A109DC0026B32A /* ACCViewController.swift */; };
 		049F91EC2424F1D9006BBE71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F91EB2424F1D9006BBE71 /* Main.storyboard */; };
 		04A8715724291C5A00F5F10C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8715624291C5A00F5F10C /* Settings.swift */; };
 		04A8715D24293AEF00F5F10C /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8715C24293AEF00F5F10C /* FirstScreenViewController.swift */; };
 		04CABC682433B74D00B953E4 /* RegisterLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CABC672433B74D00B953E4 /* RegisterLabelViewController.swift */; };
+		04DB264424A655BC00C3E226 /* Pulsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DB264324A655BC00C3E226 /* Pulsing.swift */; };
 		3A0593FE534CCA20DDE7CC4B /* libPods-car_Banner.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFF4EB00B37143E9E005D56D /* libPods-car_Banner.a */; };
 		FE00EF102360DC1A00200E9D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE00EF0F2360DC1A00200E9D /* AccountViewController.swift */; };
 		FE05724123634541009618A7 /* AddNewInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05724023634541009618A7 /* AddNewInfoViewController.swift */; };
@@ -36,13 +40,17 @@
 /* Begin PBXFileReference section */
 		03083E9B500F8623F5E798C4 /* Pods-car_Banner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-car_Banner.debug.xcconfig"; path = "Target Support Files/Pods-car_Banner/Pods-car_Banner.debug.xcconfig"; sourceTree = "<group>"; };
 		0432DFC6243C57640014E858 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		044E8DA824AF706C00C4311E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		04687B9624598AF8005C7ED8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0469C4E22462C6F2001445E5 /* TestInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInternet.swift; sourceTree = "<group>"; };
+		046E380724A651EC00912A7B /* ShakingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakingTextField.swift; sourceTree = "<group>"; };
 		04703ECB246474CA00B24813 /* ListOfHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfHistoryTableViewController.swift; sourceTree = "<group>"; };
+		049452CD24A109DC0026B32A /* ACCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACCViewController.swift; sourceTree = "<group>"; };
 		049F91EB2424F1D9006BBE71 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		04A8715624291C5A00F5F10C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		04A8715C24293AEF00F5F10C /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		04CABC672433B74D00B953E4 /* RegisterLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLabelViewController.swift; sourceTree = "<group>"; };
+		04DB264324A655BC00C3E226 /* Pulsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pulsing.swift; sourceTree = "<group>"; };
 		BB896C595D35D408D39799A7 /* Pods-car_Banner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-car_Banner.release.xcconfig"; path = "Target Support Files/Pods-car_Banner/Pods-car_Banner.release.xcconfig"; sourceTree = "<group>"; };
 		DFF4EB00B37143E9E005D56D /* libPods-car_Banner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-car_Banner.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE00EF0F2360DC1A00200E9D /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +186,10 @@
 				FE291CA323A660F700069536 /* displayMessage.swift */,
 				04A8715624291C5A00F5F10C /* Settings.swift */,
 				0469C4E22462C6F2001445E5 /* TestInternet.swift */,
+				049452CD24A109DC0026B32A /* ACCViewController.swift */,
+				046E380724A651EC00912A7B /* ShakingTextField.swift */,
+				04DB264324A655BC00C3E226 /* Pulsing.swift */,
+				044E8DA824AF706C00C4311E /* SettingsViewController.swift */,
 			);
 			path = car_Banner;
 			sourceTree = "<group>";
@@ -298,14 +310,18 @@
 				FE93225C2360417100493967 /* MainTabBarViewController.swift in Sources */,
 				FE05724123634541009618A7 /* AddNewInfoViewController.swift in Sources */,
 				04A8715724291C5A00F5F10C /* Settings.swift in Sources */,
+				046E380824A651EC00912A7B /* ShakingTextField.swift in Sources */,
 				FE757A6E2359F63400B3CD89 /* AppDelegate.swift in Sources */,
 				FE4F5A0B235A0DAC0075CE55 /* OrderListPageViewController.swift in Sources */,
+				049452CE24A109DC0026B32A /* ACCViewController.swift in Sources */,
 				FE291CA423A660F700069536 /* displayMessage.swift in Sources */,
+				044E8DA924AF706C00C4311E /* SettingsViewController.swift in Sources */,
 				FE291CA123A65F6300069536 /* PhoneVerificationViewController.swift in Sources */,
 				FE757A702359F63400B3CD89 /* SceneDelegate.swift in Sources */,
 				FE235B6F23707A820076B6C9 /* OrderViewController.swift in Sources */,
 				0432DFC7243C57640014E858 /* LocationViewController.swift in Sources */,
 				FE1A7B232369EF4100231B1F /* OrderListCollectionViewCell.swift in Sources */,
+				04DB264424A655BC00C3E226 /* Pulsing.swift in Sources */,
 				04703ECC246474CA00B24813 /* ListOfHistoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
